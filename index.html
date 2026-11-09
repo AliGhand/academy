@@ -1,0 +1,2612 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghandour Import - Operational Academy &amp; Suite</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#070F1E',
+              900: '#0B162C',
+              800: '#0F1F3D',
+              700: '#162B52',
+              600: '#1E3A6D',
+            },
+            gold: {
+              600: '#D97706',
+              500: '#F59E0B',
+              400: '#FBBF24',
+              300: '#FCD34D',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Cinzel', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F1F5F9;
+      color: #0F172A;
+    }
+    .zh-badge {
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: #FEF3C7;
+      color: #92400E;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.35rem;
+      font-weight: 700;
+      border: 1px solid #FDE68A;
+      display: inline-block;
+    }
+    /* Custom Subtle Scrollbars */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #E2E8F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94A3B8;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748B;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      main {
+        overflow: visible !important;
+        height: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="h-full overflow-hidden flex flex-col lg:flex-row select-none sm:select-auto">
+
+  <!-- ===================================================================== -->
+  <!-- LEFT FIXED OPERATIONAL SIDEBAR (MATCHING REFERENCE SCREENSHOTS)       -->
+  <!-- ===================================================================== -->
+  <aside class="w-full lg:w-[275px] bg-navy-900 text-white flex-shrink-0 flex flex-col justify-between border-r border-slate-800 z-30 no-print">
+    
+    <!-- Top Section: Brand Header + Operational Menu -->
+    <div>
+      <!-- White Brand Header Box (Exact match to top-left of photos) -->
+      <div class="bg-white text-navy-900 px-4 py-3.5 border-b border-slate-200 flex items-center justify-between lg:justify-start gap-3">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('academy')">
+          <!-- Custom SVG Globe + Gold/Navy Swoosh Emblem -->
+          <div class="w-11 h-11 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center p-1 shadow-sm flex-shrink-0">
+            <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="34" stroke="#0B162C" stroke-width="4" opacity="0.9"/>
+              <ellipse cx="50" cy="50" rx="18" ry="34" stroke="#0B162C" stroke-width="2.5" opacity="0.75"/>
+              <line x1="16" y1="50" x2="84" y2="50" stroke="#0B162C" stroke-width="2.5" opacity="0.75"/>
+              <line x1="22" y1="34" x2="78" y2="34" stroke="#0B162C" stroke-width="2" opacity="0.6"/>
+              <line x1="22" y1="66" x2="78" y2="66" stroke="#0B162C" stroke-width="2" opacity="0.6"/>
+              <!-- Dynamic Gold Trade Arrow -->
+              <path d="M10 64 C22 20, 72 14, 92 40" stroke="#D97706" stroke-width="6" stroke-linecap="round"/>
+              <polygon points="96,45 83,43 91,32" fill="#D97706"/>
+              <!-- Navy Lower Orbital Arrow -->
+              <path d="M90 54 C78 88, 30 92, 12 66" stroke="#F59E0B" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-display font-extrabold text-base tracking-wider text-navy-900 leading-none">GHANDOUR</div>
+            <div class="font-sans font-bold text-[11px] tracking-[0.28em] text-gold-600 mt-0.5 leading-none">IMPORT</div>
+            <div class="text-[8.5px] font-semibold tracking-wider uppercase text-slate-500 mt-1 leading-tight">
+              LOGISTICS &amp; COMMERCE INTERNATIONAL
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileSidebar()" class="lg:hidden px-2.5 py-1.5 rounded-lg bg-navy-900 text-gold-400 text-xs font-bold">
+          <i class="fa-solid fa-bars mr-1"></i> Menu
+        </button>
+      </div>
+
+      <!-- Sidebar Navigation Items -->
+      <div id="sidebar-nav-container" class="hidden lg:block px-3.5 py-4 space-y-1.5">
+        <div class="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
+          OPERATIONAL MENU
+        </div>
+
+        <!-- 1. Academy (9 Modules) -->
+        <button id="side-btn-academy" onclick="switchView('academy')" class="w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-3 bg-gold-500 text-navy-950 shadow-md">
+          <i class="fa-solid fa-graduation-cap text-base w-5 text-center"></i>
+          <div>
+            <div class="font-bold text-xs sm:text-[13px] leading-tight">Academy (9 Modules)</div>
+            <div class="text-[10.5px] opacity-85 font-medium">Course &amp; Slide Deck</div>
+          </div>
+        </button>
+
+        <!-- 2. Landed Cost & Customs -->
+        <button id="side-btn-landed" onclick="switchView('landed')" class="w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-3 text-slate-300 hover:bg-navy-800 hover:text-white">
+          <i class="fa-solid fa-calculator text-base w-5 text-center text-gold-400"></i>
+          <div>
+            <div class="font-bold text-xs sm:text-[13px] leading-tight">Landed Cost &amp; Customs</div>
+            <div class="text-[10.5px] text-slate-400">CBSA &amp; Margin Simulator</div>
+          </div>
+        </button>
+
+        <!-- 3. CBM, Freight & Containers -->
+        <button id="side-btn-freight" onclick="switchView('freight')" class="w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-3 text-slate-300 hover:bg-navy-800 hover:text-white">
+          <i class="fa-solid fa-ship text-base w-5 text-center text-gold-400"></i>
+          <div>
+            <div class="font-bold text-xs sm:text-[13px] leading-tight">CBM, Freight &amp; Containers</div>
+            <div class="text-[10.5px] text-slate-400">Air, Express &amp; Ocean</div>
+          </div>
+        </button>
+
+        <!-- 4. AQL Quality Inspection -->
+        <button id="side-btn-aql" onclick="switchView('aql')" class="w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-3 text-slate-300 hover:bg-navy-800 hover:text-white">
+          <i class="fa-solid fa-magnifying-glass text-base w-5 text-center text-gold-400"></i>
+          <div>
+            <div class="font-bold text-xs sm:text-[13px] leading-tight">AQL Quality Inspection</div>
+            <div class="text-[10.5px] text-slate-400">ISO 2859-1 China Standard</div>
+          </div>
+        </button>
+
+        <!-- 5. Checklist & NNN Contract -->
+        <button id="side-btn-checklist" onclick="switchView('checklist')" class="w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-3 text-slate-300 hover:bg-navy-800 hover:text-white">
+          <i class="fa-solid fa-list-check text-base w-5 text-center text-gold-400"></i>
+          <div>
+            <div class="font-bold text-xs sm:text-[13px] leading-tight">Checklist &amp; NNN Contract</div>
+            <div class="text-[10.5px] text-slate-400">10-Step Tracker &amp; Templates</div>
+          </div>
+        </button>
+
+        <!-- 6. Certification Exam -->
+        <button id="side-btn-exam" onclick="switchView('exam')" class="w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-3 text-slate-300 hover:bg-navy-800 hover:text-white">
+          <i class="fa-solid fa-award text-base w-5 text-center text-gold-400"></i>
+          <div>
+            <div class="font-bold text-xs sm:text-[13px] leading-tight">Certification Exam</div>
+            <div class="text-[10.5px] text-slate-400">CCS / CIFFA / FITT Test</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Live Time Zones Widget (Exact match to bottom-left of photos) -->
+    <div class="hidden lg:block p-3.5 border-t border-slate-800/90 bg-navy-950/60">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-gold-400">
+          <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+          <span>LIVE TIME ZONES</span>
+        </div>
+        <span class="px-1.5 py-0.5 text-[9px] font-extrabold uppercase rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          FACTORIES
+        </span>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="bg-navy-900/90 border border-slate-800 rounded-lg p-2">
+          <div class="text-[10px] text-slate-400 truncate">🇨🇦 Montreal (YUL)</div>
+          <div id="clock-mtl" class="font-mono font-bold text-xs text-white mt-0.5">16 h 42</div>
+        </div>
+        <div class="bg-navy-900/90 border border-slate-800 rounded-lg p-2">
+          <div class="text-[10px] text-slate-400 truncate">🇨🇳 Shenzhen / Ningbo</div>
+          <div id="clock-chn" class="font-mono font-bold text-xs text-gold-400 mt-0.5">05 h 42</div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ===================================================================== -->
+  <!-- RIGHT MAIN WORKSPACE (TOP STATUS BAR + SCROLLABLE CONTENT AREA)       -->
+  <!-- ===================================================================== -->
+  <div class="flex-1 flex flex-col h-full overflow-hidden">
+
+    <!-- Top Horizontal Utility Bar (Exact match to top bar in photos) -->
+    <header class="bg-white border-b border-slate-200 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 flex-shrink-0 z-20 no-print">
+      <!-- Left Status Pills -->
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          CBSA / CARM Portal: Active
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200">
+          <i class="fa-solid fa-anchor text-amber-600 text-[11px]"></i>
+          Standard Incoterm: FOB China
+        </span>
+      </div>
+
+      <!-- Right Controls: Language Pill, Global USD/CAD Rate, Print/PDF -->
+      <div class="flex items-center gap-3">
+        <!-- Language Badge -->
+        <div class="inline-flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs font-bold">
+          <button onclick="switchView('academy')" class="px-2.5 py-1 rounded-md bg-navy-900 text-gold-400 shadow-sm">
+            EN
+          </button>
+          <span class="px-2 py-1 text-slate-400 text-[11px] cursor-help" title="100% English Operational Curriculum with French/Mandarin Legal Terms Preserved">
+            QC / CN
+          </span>
+        </div>
+
+        <!-- Global USD/CAD Rate Sync Box -->
+        <div class="flex items-center gap-2 bg-slate-50 px-3 py-1 rounded-lg border border-slate-200 text-xs">
+          <span class="text-slate-500 font-medium">USD/CAD Rate:</span>
+          <input
+            type="number"
+            id="global-fx-input"
+            value="1.38"
+            step="0.01"
+            min="0.5"
+            oninput="syncGlobalExchangeRate(this.value)"
+            class="w-14 font-mono font-bold text-navy-900 bg-white border border-slate-300 rounded px-1.5 py-0.5 text-center focus:outline-none focus:ring-1 focus:ring-navy-900"
+          />
+        </div>
+
+        <!-- Print / PDF Button -->
+        <button onclick="window.print()" class="px-3.5 py-1.5 rounded-lg bg-navy-900 hover:bg-navy-800 text-white font-semibold text-xs flex items-center gap-1.5 shadow-sm transition">
+          <i class="fa-solid fa-print text-gold-400"></i>
+          <span>Print / PDF</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Scrollable Viewport -->
+    <main id="main-scroll-area" class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-7 space-y-6">
+
+      <!-- ================================================================= -->
+      <!-- VIEW 1: ACADEMY (9 MODULES) — SLIDE DECK & FULL MANUAL            -->
+      <!-- ================================================================= -->
+      <section id="view-academy" class="max-w-6xl mx-auto space-y-5">
+        
+        <!-- Dark Navy Hero Banner (Exact match to IMG_3145.jpg) -->
+        <div class="bg-navy-900 text-white rounded-2xl p-5 sm:p-6 shadow-md border border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div class="space-y-2 max-w-2xl">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-navy-800 text-gold-400 border border-gold-500/30">
+              <i class="fa-solid fa-book-open"></i> Complete Masterclass Program &bull; CCS, CIFFA &amp; FITT Standards
+            </span>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+              Ghandour Import Operational Academy
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              All technical, customs, legal, and logistics knowledge to operate between your factories in China and your clients in Quebec without unnecessary middlemen or CBSA holds.
+            </p>
+          </div>
+
+          <!-- Course Display Mode Box -->
+          <div class="bg-navy-950/90 p-3.5 rounded-xl border border-slate-800 flex-shrink-0">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+              COURSE DISPLAY MODE:
+            </div>
+            <div class="flex items-center gap-2">
+              <button id="mode-btn-slide" onclick="setAcademyMode('slide')" class="px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 bg-gold-500 text-navy-950 shadow transition">
+                <i class="fa-solid fa-tv"></i>
+                <span>Slide Mode (Deck)</span>
+              </button>
+              <button id="mode-btn-manual" onclick="setAcademyMode('manual')" class="px-3.5 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 bg-navy-800 text-slate-300 hover:text-white border border-slate-700 transition">
+                <i class="fa-solid fa-book"></i>
+                <span>Full Manual (9 Modules)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search & Keyboard Arrow Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="relative flex-1 max-w-lg">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+            <input
+              type="text"
+              id="academy-search"
+              oninput="handleAcademySearch(this.value)"
+              placeholder="Search a term (e.g. CARM, RM0001, 生产, NNN, AQL, FOB, ISPM 15, SIMA, Bill 96)..."
+              class="w-full pl-9 pr-16 py-2 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-navy-900"
+            />
+            <button id="academy-search-clear" onclick="clearAcademySearch()" class="hidden absolute right-2.5 top-1.5 px-2 py-1 text-[10px] font-bold bg-slate-200 hover:bg-slate-300 rounded text-slate-700">
+              Clear
+            </button>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs text-slate-500">
+            <span>Use arrows</span>
+            <button onclick="prevSlide()" class="w-7 h-7 rounded bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-100 text-navy-900 shadow-sm" title="Previous Module (Left Arrow)">
+              <i class="fa-solid fa-arrow-left text-[11px]"></i>
+            </button>
+            <button onclick="nextSlide()" class="w-7 h-7 rounded bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-100 text-navy-900 shadow-sm" title="Next Module (Right Arrow)">
+              <i class="fa-solid fa-arrow-right text-[11px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 9 Module Selector Pills Row (Exact match to IMG_3145.jpg) -->
+        <div id="module-pills-row" class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-2">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Dynamic Container for Slide Mode OR Full Manual Mode -->
+        <div id="academy-content-container" class="space-y-6">
+          <!-- Populated dynamically via JS with 100% unabridged content -->
+        </div>
+
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- VIEW 2: LANDED COST & CUSTOMS SIMULATOR (EXACT IMG_3146.jpg)      -->
+      <!-- ================================================================= -->
+      <section id="view-landed" class="hidden max-w-6xl mx-auto space-y-6">
+        
+        <!-- Header & Preset Buttons Row -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+          <div>
+            <div class="text-[11px] font-extrabold uppercase tracking-widest text-gold-600">
+              FINANCIAL &amp; CUSTOMS SIMULATOR
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">
+              CBSA Landed Cost &amp; Customs Calculator
+            </h1>
+          </div>
+
+          <!-- 3 Product Preset Pills (Exact match to top-right of IMG_3146.jpg) -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="preset-btn-backpacks" onclick="loadLandedPreset('backpacks')" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-navy-900 text-white shadow-sm transition">
+              Backpacks (11%)
+            </button>
+            <button id="preset-btn-furniture" onclick="loadLandedPreset('furniture')" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition">
+              Furniture (0%)
+            </button>
+            <button id="preset-btn-electronics" onclick="loadLandedPreset('electronics')" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition">
+              cUL Electronics (6%)
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Two-Column Simulator Layout (Exact match to IMG_3146.jpg) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT COLUMN: 1. Order Parameters & 2. Logistics (CAD $) (5 Cols) -->
+          <div class="lg:col-span-5 bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200 space-y-6">
+            
+            <!-- Section 1: Order Parameters -->
+            <div class="space-y-4">
+              <h2 class="text-sm font-bold text-navy-900 border-b border-slate-100 pb-2">
+                1. Order Parameters
+              </h2>
+
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-500 mb-1">Product &amp; HS Code</label>
+                <input
+                  type="text"
+                  id="sim-product-name"
+                  value="Custom Technical Backpacks (HS: 4202.92.90.10)"
+                  class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-navy-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-navy-900"
+                />
+              </div>
+
+              <div class="grid grid-cols-2 gap-3.5">
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">Quantity</label>
+                  <input
+                    type="number"
+                    id="sim-qty"
+                    value="1000"
+                    min="1"
+                    step="1"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">FOB Price (USD $)</label>
+                  <input
+                    type="number"
+                    id="sim-fob-usd"
+                    value="12.00"
+                    min="0"
+                    step="0.01"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">USD &rarr; CAD Rate</label>
+                  <input
+                    type="number"
+                    id="sim-fx"
+                    value="1.38"
+                    min="0.1"
+                    step="0.01"
+                    oninput="syncFromSimExchangeRate(this.value)"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">MFN Customs Duty (%)</label>
+                  <input
+                    type="number"
+                    id="sim-duty-pct"
+                    value="11"
+                    min="0"
+                    step="0.1"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Logistics (CAD $) -->
+            <div class="space-y-4 pt-2">
+              <h2 class="text-sm font-bold text-navy-900 border-b border-slate-100 pb-2">
+                2. Logistics (CAD $)
+              </h2>
+
+              <div class="grid grid-cols-2 gap-3.5">
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">Freight China &rarr; Montreal</label>
+                  <input
+                    type="number"
+                    id="sim-freight"
+                    value="1450"
+                    min="0"
+                    step="10"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-semibold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">PSI Inspection</label>
+                  <input
+                    type="number"
+                    id="sim-psi"
+                    value="250"
+                    min="0"
+                    step="10"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-semibold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">Cargo Insurance</label>
+                  <input
+                    type="number"
+                    id="sim-ins"
+                    value="95"
+                    min="0"
+                    step="5"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-semibold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">Customs Broker</label>
+                  <input
+                    type="number"
+                    id="sim-broker"
+                    value="125"
+                    min="0"
+                    step="5"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-semibold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-500 mb-1">T/T Wire Fee</label>
+                  <input
+                    type="number"
+                    id="sim-wire"
+                    value="40"
+                    min="0"
+                    step="5"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-semibold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-900"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-gold-600 mb-1">Gross Margin (%)</label>
+                  <input
+                    type="number"
+                    id="sim-margin"
+                    value="25"
+                    min="1"
+                    max="95"
+                    step="0.5"
+                    oninput="runLandedSimulator()"
+                    class="w-full px-3 py-2 rounded-lg border-2 border-gold-400 bg-amber-50/30 font-mono font-bold text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: 3 Top KPI Cards + CBSA Customs Breakdown (7 Cols) -->
+          <div class="lg:col-span-7 space-y-5">
+            
+            <!-- Top 3 KPI Cards (Exact match to IMG_3146.jpg) -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              
+              <!-- Card 1: Dark Navy - Net Unit Landed Cost -->
+              <div class="bg-navy-900 text-white rounded-2xl p-5 shadow-md border-b-4 border-gold-500 flex flex-col justify-between">
+                <div class="text-xs font-semibold text-slate-300">Net Unit Landed Cost</div>
+                <div id="kpi-unit-landed" class="text-3xl font-extrabold font-mono text-white my-2">$20.34</div>
+                <div id="kpi-multiplier" class="text-[11px] font-semibold text-emerald-400">+22.8% vs Factory Price</div>
+              </div>
+
+              <!-- Card 2: Clean White - Client Selling Price (Excl. Tax) -->
+              <div class="bg-white text-navy-900 rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div class="text-xs font-semibold text-slate-500">Client Selling Price (Excl. Tax)</div>
+                <div id="kpi-unit-sell" class="text-3xl font-extrabold font-mono text-navy-900 my-2">$27.12</div>
+                <div id="kpi-unit-profit" class="text-[11px] font-bold text-sky-600">Profit: +$6.78 / u.</div>
+              </div>
+
+              <!-- Card 3: Vibrant Gold - TOTAL NET PROFIT -->
+              <div class="bg-gold-500 text-navy-950 rounded-2xl p-5 shadow-md flex flex-col justify-between">
+                <div class="text-xs font-extrabold uppercase tracking-wider text-navy-900/80">TOTAL NET PROFIT</div>
+                <div id="kpi-total-profit" class="text-3xl font-extrabold font-mono text-navy-950 my-2">$6,780.53</div>
+                <div id="kpi-total-invoice" class="text-[11px] font-bold text-navy-900/90">Invoice Excl. Tax: $27,122.13</div>
+              </div>
+
+            </div>
+
+            <!-- CBSA Customs Breakdown Card (Exact match to IMG_3146.jpg) -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 class="font-bold text-sm sm:text-base text-navy-900">
+                  CBSA Customs Breakdown
+                </h3>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  GST 100% Recoverable
+                </span>
+              </div>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="flex items-center justify-between py-1">
+                  <span class="text-slate-600">1. Value for Duty (VFD = FOB USD &times; CBSA Rate)</span>
+                  <span id="brk-vfd" class="font-mono font-bold text-navy-900">$16,560.00 CAD</span>
+                </div>
+
+                <div class="flex items-center justify-between py-1">
+                  <span id="brk-duty-label" class="text-slate-600">2. Customs Duty (11%)</span>
+                  <span id="brk-duty" class="font-mono font-bold text-red-600">$1,821.60 CAD</span>
+                </div>
+
+                <div class="flex items-center justify-between py-1">
+                  <span class="text-slate-600">3. Value for Tax (VFT = VFD + Customs Duty)</span>
+                  <span id="brk-vft" class="font-mono font-bold text-navy-900">$18,381.60 CAD</span>
+                </div>
+
+                <div class="flex items-center justify-between py-1">
+                  <span class="text-slate-600">4. Logistics &amp; Ancillary Fees (Freight, PSI, Ins., Broker, T/T)</span>
+                  <span id="brk-logistics" class="font-mono font-bold text-navy-900">$1,960.00 CAD</span>
+                </div>
+
+                <!-- Highlighted Total Net Landed Cost Bar -->
+                <div class="bg-slate-100 rounded-xl p-4 flex items-center justify-between border border-slate-200 mt-2">
+                  <span class="font-extrabold text-xs sm:text-sm uppercase tracking-wider text-navy-900">
+                    TOTAL NET LANDED COST
+                  </span>
+                  <span id="brk-total-net" class="font-mono font-extrabold text-base sm:text-lg text-navy-900">
+                    $20,341.60 CAD
+                  </span>
+                </div>
+
+                <!-- Dashed Footer Row for Recoverable GST -->
+                <div class="pt-3 border-t border-dashed border-slate-200 flex items-center justify-between text-xs text-slate-500">
+                  <span>GST paid to CBSA (5% on VFT &mdash; 100% refunded via ITCs):</span>
+                  <span id="brk-gst" class="font-mono font-semibold text-slate-700">$919.08 CAD</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 21 Self-Financing & Cash-Flow Advantage Card (Module 9 Step 6) -->
+            <div class="bg-navy-900 text-white rounded-2xl p-5 shadow-sm border border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div>
+                <div class="text-slate-400 font-medium">Day 21: 50% Client Deposit</div>
+                <div id="cf-client-50" class="font-mono font-extrabold text-base text-emerald-400 mt-0.5">+$13,561.07 CAD</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Collected upon contract signature</div>
+              </div>
+              <div>
+                <div class="text-slate-400 font-medium">Day 21: 30% Factory T/T Wire</div>
+                <div id="cf-factory-30" class="font-mono font-extrabold text-base text-amber-400 mt-0.5">-$5,008.00 CAD</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">30% of FOB + $40 T/T wire fee</div>
+              </div>
+              <div class="bg-navy-950/90 p-3 rounded-xl border border-emerald-500/30">
+                <div class="text-emerald-300 font-bold uppercase text-[10px]">Day 1 Working Capital Surplus</div>
+                <div id="cf-net-surplus" class="font-mono font-extrabold text-base text-white mt-0.5">+$8,553.07 CAD</div>
+                <div class="text-[10px] text-slate-400">Zero out-of-pocket treasury drain</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- VIEW 3: CBM, FREIGHT & CONTAINERS SIMULATOR (MODULE 5)            -->
+      <!-- ================================================================= -->
+      <section id="view-freight" class="hidden max-w-6xl mx-auto space-y-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+          <div>
+            <div class="text-[11px] font-extrabold uppercase tracking-widest text-gold-600">
+              MODULE 5 LOGISTICS &amp; VOLUMETRIC SIMULATOR
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">
+              CBM, Volumetric Weight &amp; Container Load Calculator
+            </h1>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="loadFreightPreset('cushions')" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-navy-900 text-gold-400 shadow-sm">
+              Load DHL Cushion Trap (10 Boxes = 300 kg vs 50 kg)
+            </button>
+            <button onclick="loadFreightPreset('steel')" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100">
+              Load Cast-Iron LCL W/M Example (1 CBM / 2,500 kg)
+            </button>
+            <button onclick="loadFreightPreset('fcl20')" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100">
+              Load 20' FCL Threshold (18 CBM)
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Carton Inputs (4 cols) -->
+          <div class="lg:col-span-4 bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+            <h2 class="text-sm font-bold text-navy-900 border-b border-slate-100 pb-2">
+              Master Carton Dimensions &amp; Weight
+            </h2>
+            <div class="grid grid-cols-3 gap-2.5">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-500 mb-1">Length (cm)</label>
+                <input type="number" id="cbm-l" value="60" min="1" oninput="runFreightSimulator()" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-500 mb-1">Width (cm)</label>
+                <input type="number" id="cbm-w" value="50" min="1" oninput="runFreightSimulator()" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-500 mb-1">Height (cm)</label>
+                <input type="number" id="cbm-h" value="50" min="1" oninput="runFreightSimulator()" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-500 mb-1">Gross Wt / Box (kg)</label>
+                <input type="number" id="cbm-wt" value="5" min="0.1" step="0.1" oninput="runFreightSimulator()" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-500 mb-1">Total Boxes</label>
+                <input type="number" id="cbm-boxes" value="10" min="1" step="1" oninput="runFreightSimulator()" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-mono font-bold text-sm" />
+              </div>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
+              <div class="flex justify-between">
+                <span class="text-slate-500">1 Carton Volume:</span>
+                <span id="cbm-unit-out" class="font-mono font-bold text-navy-900">0.150 CBM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Total Shipment Volume:</span>
+                <span id="cbm-total-out" class="font-mono font-extrabold text-sm text-navy-900">1.50 CBM (m&sup3;)</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Total Actual Gross Weight:</span>
+                <span id="cbm-wt-out" class="font-mono font-extrabold text-sm text-navy-900">50.0 kg (0.050 t)</span>
+              </div>
+            </div>
+
+            <div class="bg-navy-900 text-white p-4 rounded-xl border-l-4 border-gold-500">
+              <div class="text-[10px] font-mono uppercase text-gold-400 font-bold">Optimal Mode Recommendation</div>
+              <div id="cbm-rec-title" class="font-bold text-sm mt-1">Express Courier or LCL</div>
+              <p id="cbm-rec-desc" class="text-xs text-slate-300 mt-1 leading-relaxed"></p>
+            </div>
+          </div>
+
+          <!-- Chargeable Weight & Containers Output (8 cols) -->
+          <div class="lg:col-span-8 space-y-5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Express -->
+              <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold uppercase text-navy-900">Express Courier</span>
+                  <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-mono text-[10px] font-bold">L&times;W&times;H / 5,000</span>
+                </div>
+                <div class="text-[11px] text-slate-500 mt-0.5">DHL / FedEx / UPS (1 CBM = 200 kg)</div>
+                <div id="cbm-exp-chg" class="text-2xl font-extrabold font-mono text-navy-900 mt-3">300.0 kg</div>
+                <div id="cbm-exp-sub" class="text-[11px] font-semibold text-amber-700 mt-1">Volumetric: 300 kg vs 50 kg Real</div>
+              </div>
+
+              <!-- Classic Air -->
+              <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold uppercase text-navy-900">Classic Air Cargo</span>
+                  <span class="px-2 py-0.5 rounded bg-sky-100 text-sky-900 font-mono text-[10px] font-bold">L&times;W&times;H / 6,000</span>
+                </div>
+                <div class="text-[11px] text-slate-500 mt-0.5">YUL Bonded Airport (1 CBM = 166.67 kg)</div>
+                <div id="cbm-air-chg" class="text-2xl font-extrabold font-mono text-navy-900 mt-3">250.0 kg</div>
+                <div id="cbm-air-sub" class="text-[11px] font-semibold text-sky-700 mt-1">Volumetric: 250 kg vs 50 kg Real</div>
+              </div>
+
+              <!-- Ocean LCL -->
+              <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold uppercase text-navy-900">Ocean LCL (W/M)</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-mono text-[10px] font-bold">1 CBM = 1,000 kg</span>
+                </div>
+                <div class="text-[11px] text-slate-500 mt-0.5">Montreal CFS Bonded Warehouse</div>
+                <div id="cbm-lcl-chg" class="text-2xl font-extrabold font-mono text-emerald-700 mt-3">1.50 W/M</div>
+                <div id="cbm-lcl-sub" class="text-[11px] font-semibold text-emerald-700 mt-1">1.50 CBM vs 0.05 Metric Tons</div>
+              </div>
+            </div>
+
+            <!-- Real Container Loadable Capacities (85-88% Rule) -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="font-bold text-sm text-navy-900">FCL Container Utilization (Real 85%&ndash;88% Loadable Capacity Rule)</h3>
+                  <p class="text-xs text-slate-500">Starting at 15 CBM, renting a full 20' container is often cheaper than LCL per CBM.</p>
+                </div>
+                <span class="px-2.5 py-1 rounded bg-navy-900 text-gold-400 font-mono text-xs font-bold">40"&times;48" N.A. Pallets</span>
+              </div>
+
+              <div class="space-y-3 text-xs">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-bold text-navy-900">20' Dry (5.89m &times; 2.35m &times; 2.39m) &mdash; <span class="text-emerald-700">26 to 28 CBM Real</span> <span class="text-slate-400 font-normal">(33.2 m&sup3; Theoretical | 10 Pallets)</span></span>
+                    <span id="fcl-20-pct" class="font-mono font-bold">5.4%</span>
+                  </div>
+                  <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+                    <div id="fcl-20-bar" class="h-full bg-navy-900 transition-all duration-300" style="width: 5.4%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-bold text-navy-900">40' Dry (12.03m &times; 2.35m &times; 2.39m) &mdash; <span class="text-emerald-700">56 to 58 CBM Real</span> <span class="text-slate-400 font-normal">(67.7 m&sup3; Theoretical | 20&ndash;21 Pallets)</span></span>
+                    <span id="fcl-40-pct" class="font-mono font-bold">2.6%</span>
+                  </div>
+                  <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+                    <div id="fcl-40-bar" class="h-full bg-navy-700 transition-all duration-300" style="width: 2.6%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-bold text-navy-900">40' HQ High Cube (12.03m &times; 2.35m &times; 2.69m) &mdash; <span class="text-emerald-700">65 to 68 CBM Real</span> <span class="text-slate-400 font-normal">(76.4 m&sup3; Theoretical | 20&ndash;21 Pallets +30cm)</span></span>
+                    <span id="fcl-40hq-pct" class="font-mono font-bold">2.2%</span>
+                  </div>
+                  <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+                    <div id="fcl-40hq-bar" class="h-full bg-gold-500 transition-all duration-300" style="width: 2.2%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- VIEW 4: AQL QUALITY INSPECTION (ISO 2859-1 CHINA STANDARD)        -->
+      <!-- ================================================================= -->
+      <section id="view-aql" class="hidden max-w-6xl mx-auto space-y-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+          <div>
+            <div class="text-[11px] font-extrabold uppercase tracking-widest text-gold-600">
+              MODULE 3 STATISTICAL QC ENGINE (SGS / BUREAU VERITAS / QIMA PROTOCOL)
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">
+              ISO 2859-1 (AQL Level II) Inspection &amp; 70% Payment Gate
+            </h1>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="loadAqlPreset(5000, 0, 7, 10)" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow-sm">
+              Simulate 5,000 Units (PASS)
+            </button>
+            <button onclick="loadAqlPreset(5000, 0, 11, 8)" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-red-600 text-white shadow-sm">
+              Simulate 5,000 Units (FAIL &ge;11 Major)
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <h2 class="text-sm font-bold text-navy-900 border-b border-slate-100 pb-2">
+              Pre-Shipment Inspection (PSI) Parameters
+            </h2>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Total Production Lot Quantity (Units)</label>
+              <input type="number" id="qc-lot-size" value="5000" min="2" step="50" oninput="runAqlSimulator()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono font-extrabold text-base text-navy-900" />
+              <span class="text-[11px] text-slate-500">Requires 100% production complete &amp; &ge;80% packed in master cartons</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3 pt-2">
+              <div class="p-3 rounded-xl bg-red-50 border border-red-200">
+                <label class="block text-[11px] font-bold text-red-900">Critical (0.0)</label>
+                <span class="text-[10px] text-red-700 block mb-1">Unsafe / Illegal</span>
+                <input type="number" id="qc-crit" value="0" min="0" oninput="runAqlSimulator()" class="w-full px-2 py-1.5 rounded bg-white border border-red-300 font-mono font-bold text-sm text-red-900" />
+              </div>
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                <label class="block text-[11px] font-bold text-amber-900">Major (2.5)</label>
+                <span class="text-[10px] text-amber-700 block mb-1">Unsellable defect</span>
+                <input type="number" id="qc-maj" value="7" min="0" oninput="runAqlSimulator()" class="w-full px-2 py-1.5 rounded bg-white border border-amber-300 font-mono font-bold text-sm text-amber-900" />
+              </div>
+              <div class="p-3 rounded-xl bg-slate-100 border border-slate-300">
+                <label class="block text-[11px] font-bold text-slate-800">Minor (4.0)</label>
+                <span class="text-[10px] text-slate-600 block mb-1">Slight cosmetic</span>
+                <input type="number" id="qc-min" value="10" min="0" oninput="runAqlSimulator()" class="w-full px-2 py-1.5 rounded bg-white border border-slate-300 font-mono font-bold text-sm text-slate-900" />
+              </div>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5">
+              <div class="flex justify-between">
+                <span class="text-slate-500">Order Bracket:</span>
+                <span id="qc-bracket" class="font-mono font-bold text-navy-900">3,201 to 10,000 units</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Random Sample to Pull:</span>
+                <span id="qc-sample" class="font-mono font-extrabold text-gold-600 text-sm">200 units</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-5">
+            <!-- Verdict Card -->
+            <div id="qc-verdict-card" class="rounded-2xl p-6 bg-emerald-950 text-white border-2 border-emerald-500 shadow-md">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span id="qc-verdict-badge" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-emerald-400 text-navy-950">
+                    PSI PASSED &bull; AUTHORIZE 70% T/T WIRE
+                  </span>
+                  <h3 id="qc-verdict-title" class="text-xl font-extrabold mt-2">
+                    Quality Approved &mdash; Proceed with 70% Balance &amp; Telex Release B/L
+                  </h3>
+                  <p id="qc-verdict-desc" class="text-xs text-emerald-200 mt-1 leading-relaxed"></p>
+                </div>
+                <div class="text-right font-mono flex-shrink-0">
+                  <div class="text-[10px] uppercase opacity-75">Random Sample</div>
+                  <div id="qc-sample-big" class="text-3xl font-extrabold text-gold-400">200</div>
+                  <div class="text-[10px] opacity-75">Units Pulled</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Official Module 3 AQL Reference Table -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+              <div class="bg-navy-900 text-white px-5 py-3 text-xs font-bold uppercase tracking-wider">
+                Official ISO 2859-1 Level II Reference Table (Standard AQL 2.5 Major / 4.0 Minor)
+              </div>
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                    <th class="py-2.5 px-4">Total Order Size</th>
+                    <th class="py-2.5 px-4">Random Sample to Pull</th>
+                    <th class="py-2.5 px-4">Lot Rejected if Major &ge;</th>
+                    <th class="py-2.5 px-4">Lot Rejected if Minor &ge;</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 font-mono">
+                  <tr>
+                    <td class="py-2.5 px-4">151 to 280 units</td>
+                    <td class="py-2.5 px-4 font-bold text-navy-900">32 units</td>
+                    <td class="py-2.5 px-4 text-red-600 font-bold">3 units</td>
+                    <td class="py-2.5 px-4 text-amber-700 font-bold">4 units</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 px-4">501 to 1,200 units</td>
+                    <td class="py-2.5 px-4 font-bold text-navy-900">80 units</td>
+                    <td class="py-2.5 px-4 text-red-600 font-bold">6 units</td>
+                    <td class="py-2.5 px-4 text-amber-700 font-bold">8 units</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 px-4">1,201 to 3,200 units</td>
+                    <td class="py-2.5 px-4 font-bold text-navy-900">125 units</td>
+                    <td class="py-2.5 px-4 text-red-600 font-bold">8 units</td>
+                    <td class="py-2.5 px-4 text-amber-700 font-bold">11 units</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 px-4">3,201 to 10,000 units</td>
+                    <td class="py-2.5 px-4 font-bold text-navy-900">200 units</td>
+                    <td class="py-2.5 px-4 text-red-600 font-bold">11 units</td>
+                    <td class="py-2.5 px-4 text-amber-700 font-bold">15 units</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- VIEW 5: 10-STEP CHECKLIST & NNN / NECIPS AUDITOR                  -->
+      <!-- ================================================================= -->
+      <section id="view-checklist" class="hidden max-w-6xl mx-auto space-y-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+          <div>
+            <div class="text-[11px] font-extrabold uppercase tracking-widest text-gold-600">
+              MODULES 2 &amp; 9 EXECUTION &amp; LEGAL PROTECTION
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">
+              10-Step SOP Checklist, NECIPS Factory Auditor &amp; NNN Contract
+            </h1>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="setAllSop(true)" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold">Check All 10 Steps</button>
+            <button onclick="setAllSop(false)" class="px-3 py-1.5 rounded-lg bg-slate-200 text-slate-700 text-xs font-bold">Reset Tracker</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Left: 10-Step Chronological SOP Checklist (7 cols) -->
+          <div class="lg:col-span-7 bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <h2 class="text-base font-extrabold text-navy-900">Module 9: 10-Step Order Execution Roadmap</h2>
+              <span id="sop-pct-badge" class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-navy-900 text-gold-400">0 / 10 (0%)</span>
+            </div>
+            <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+              <div id="sop-bar" class="h-full bg-gold-500 transition-all duration-300" style="width: 0%"></div>
+            </div>
+            <div id="sop-list-box" class="space-y-2.5">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+
+          <!-- Right: NECIPS 4-Point Auditor & Mandarin NNN Clause Template (5 cols) -->
+          <div class="lg:col-span-5 space-y-5">
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
+              <h3 class="text-sm font-extrabold text-navy-900 border-b border-slate-100 pb-2">
+                4-Point NECIPS Chinese Business License (<span class="zh-badge">营业执照</span>) Verification
+              </h3>
+              <div class="space-y-2.5 text-xs">
+                <label class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer">
+                  <input type="checkbox" checked class="mt-0.5 rounded text-navy-900" />
+                  <span><strong>1. 18-Digit USCC Code:</strong> Verified active legal existence on China's national NECIPS government registry.</span>
+                </label>
+                <label class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer">
+                  <input type="checkbox" checked class="mt-0.5 rounded text-navy-900" />
+                  <span><strong>2. Business Scope (<span class="zh-badge">经营范围</span>):</strong> Contains mandatory <span class="zh-badge">生产</span> (Production) or <span class="zh-badge">制造</span> (Manufacturing). Rejects middlemen showing only <span class="zh-badge">批发</span> / <span class="zh-badge">销售</span> / <span class="zh-badge">贸易</span>.</span>
+                </label>
+                <label class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer">
+                  <input type="checkbox" checked class="mt-0.5 rounded text-navy-900" />
+                  <span><strong>3. Registered Capital (<span class="zh-badge">注册资本</span>):</strong> At least 500,000 to 2,000,000 RMB (~$100k–$400k CAD).</span>
+                </label>
+                <label class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer">
+                  <input type="checkbox" checked class="mt-0.5 rounded text-navy-900" />
+                  <span><strong>4. Beneficiary Bank Account:</strong> USD/RMB wire account matches exact Mainland company name on license (no personal or HK shell account).</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- NNN Clause Copy Box -->
+            <div class="bg-navy-900 text-white rounded-2xl p-5 border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono uppercase text-gold-400 font-bold">Mandarin NNN Liquidated Damages Clause</span>
+                <button onclick="copyNnnClause()" id="copy-nnn-btn" class="px-2.5 py-1 rounded bg-gold-500 text-navy-950 font-bold text-[11px] hover:bg-gold-400">
+                  <i class="fa-solid fa-copy mr-1"></i> Copy Clause
+                </button>
+              </div>
+              <textarea id="nnn-clause-text" readonly rows="7" class="w-full p-3 rounded-xl bg-navy-950 text-slate-200 font-mono text-[11px] border border-slate-700 focus:outline-none">NON-DISCLOSURE, NON-USE & NON-CIRCUMVENTION (NNN) CLAUSE:
+1. Language & Jurisdiction: This Agreement is executed in Mandarin Chinese (which prevails) and governed exclusively by the Laws of the People's Republic of China and the People's Court of the Manufacturer's city.
+2. Non-Circumvention: Manufacturer shall strictly refrain from contacting Ghandour Import's Canadian clients or accepting direct orders.
+3. Predetermined Liquidated Damages (违约金): Any breach of Non-Disclosure, Non-Use, or Non-Circumvention immediately entitles Ghandour Import to fixed liquidated damages of 300,000 RMB (叁拾万元人民币) per violation, enforceable via immediate court preservation/freezing of Manufacturer's bank accounts.
+4. Payment Gate: 30% T/T deposit; 70% T/T balance payable strictly after Pre-Shipment Inspection (PSI) approval under ISO 2859-1 (AQL 0.0 Critical / 2.5 Major / 4.0 Minor) prior to container loading.</textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- VIEW 6: CERTIFICATION EXAM (CCS / CIFFA / FITT TEST)              -->
+      <!-- ================================================================= -->
+      <section id="view-exam" class="hidden max-w-5xl mx-auto space-y-6">
+        <div class="bg-navy-900 text-white rounded-2xl p-6 shadow-md border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="px-2.5 py-0.5 rounded bg-gold-500 text-navy-950 font-mono text-[11px] font-extrabold uppercase">
+              CCS / CIFFA / FITT OPERATIONAL MASTERY EXAM
+            </span>
+            <h1 class="text-2xl font-extrabold mt-1">Ghandour Import Executive Certification Test (12 Questions)</h1>
+            <p class="text-xs text-slate-300 mt-1">
+              Test your mastery of all 9 modules: CARM &amp; RM0001, NECIPS Chinese characters, NNN contracts, ISO 2859-1 AQL, Incoterms traps, Volumetric math, ISPM 15, CBSA Landed Cost, and Bill 96 / cUL compliance.
+            </p>
+          </div>
+          <div class="text-right font-mono flex-shrink-0">
+            <div class="text-xs text-slate-400">Current Score</div>
+            <div id="exam-score-display" class="text-3xl font-extrabold text-gold-400">0 / 12</div>
+          </div>
+        </div>
+
+        <div id="exam-questions-container" class="space-y-4">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- COMPLETE JAVASCRIPT ENGINE & UNABRIDGED 9-MODULE DATA                   -->
+  <!-- ======================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. LIVE TIME ZONES CLOCKS (MONTREAL YUL vs SHENZHEN / NINGBO)
+    // -------------------------------------------------------------------------
+    function updateLiveClocks() {
+      const now = new Date();
+      try {
+        const mtlParts = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'America/Toronto',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        }).formatToParts(now);
+        const mtlH = mtlParts.find(p => p.type === 'hour')?.value || '16';
+        const mtlM = mtlParts.find(p => p.type === 'minute')?.value || '42';
+        document.getElementById('clock-mtl').textContent = `${mtlH} h ${mtlM}`;
+
+        const chnParts = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Shanghai',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        }).formatToParts(now);
+        const chnH = chnParts.find(p => p.type === 'hour')?.value || '04';
+        const chnM = chnParts.find(p => p.type === 'minute')?.value || '42';
+        document.getElementById('clock-chn').textContent = `${chnH} h ${chnM}`;
+      } catch (e) {
+        // Fallback if Intl timezone fails
+      }
+    }
+    setInterval(updateLiveClocks, 10000);
+    updateLiveClocks();
+
+    // -------------------------------------------------------------------------
+    // 2. SIDEBAR & VIEW NAVIGATION
+    // -------------------------------------------------------------------------
+    const allViews = ['academy', 'landed', 'freight', 'aql', 'checklist', 'exam'];
+    const sidebarMeta = {
+      academy:   { icon: 'fa-graduation-cap', title: 'Academy (9 Modules)', sub: 'Course & Slide Deck' },
+      landed:    { icon: 'fa-calculator',     title: 'Landed Cost & Customs', sub: 'CBSA & Margin Simulator' },
+      freight:   { icon: 'fa-ship',           title: 'CBM, Freight & Containers', sub: 'Air, Express & Ocean' },
+      aql:       { icon: 'fa-magnifying-glass', title: 'AQL Quality Inspection', sub: 'ISO 2859-1 China Standard' },
+      checklist: { icon: 'fa-list-check',     title: 'Checklist & NNN Contract', sub: '10-Step Tracker & Templates' },
+      exam:      { icon: 'fa-award',          title: 'Certification Exam', sub: 'CCS / CIFFA / FITT Test' }
+    };
+
+    function switchView(targetView) {
+      allViews.forEach(v => {
+        const section = document.getElementById(`view-${v}`);
+        const btn = document.getElementById(`side-btn-${v}`);
+        const meta = sidebarMeta[v];
+        if (v === targetView) {
+          section.classList.remove('hidden');
+          btn.className = 'w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-3 bg-gold-500 text-navy-950 shadow-md';
+          btn.innerHTML = `
+            <i class="fa-solid ${meta.icon} text-base w-5 text-center text-navy-950"></i>
+            <div>
+              <div class="font-bold text-xs sm:text-[13px] leading-tight text-navy-950">${meta.title}</div>
+              <div class="text-[10.5px] text-navy-900/80 font-medium">${meta.sub}</div>
+            </div>
+          `;
+        } else {
+          section.classList.add('hidden');
+          btn.className = 'w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-3 text-slate-300 hover:bg-navy-800 hover:text-white';
+          btn.innerHTML = `
+            <i class="fa-solid ${meta.icon} text-base w-5 text-center text-gold-400"></i>
+            <div>
+              <div class="font-bold text-xs sm:text-[13px] leading-tight">${meta.title}</div>
+              <div class="text-[10.5px] text-slate-400">${meta.sub}</div>
+            </div>
+          `;
+        }
+      });
+      document.getElementById('main-scroll-area').scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileSidebar() {
+      const nav = document.getElementById('sidebar-nav-container');
+      nav.classList.toggle('hidden');
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. COMPLETE UNABRIDGED 9-MODULE CURRICULUM DATA (100% DETAILS)
+    // -------------------------------------------------------------------------
+    const modulesData = [
+      {
+        id: 1,
+        shortTab: '1. Legal & CARM',
+        title: 'Module 1: Legal, Fiscal & Customs Structure (Quebec & Canada)',
+        tags: 'REQ (NEQ), CRA (RM0001, RT0001, TQ0001), CBSA CARM Portal, RPP Surety Bond, IOR Models',
+        linkedTool: 'landed',
+        linkedToolLabel: 'Open CBSA Landed Cost Simulator',
+        html: `
+          <div class="space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 font-medium text-navy-900">
+              To operate <strong>Ghandour Import</strong> legally and clear commercial merchandise across the Canadian border, your enterprise rests on <strong>four mandatory administrative pillars</strong>.
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <!-- Pillar 1 -->
+              <div class="p-5 rounded-xl border border-slate-200 bg-white space-y-3 shadow-sm">
+                <h3 class="text-base font-extrabold text-navy-900 flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-xs flex items-center justify-center font-mono">1</span>
+                  Legal Form in Quebec (REQ)
+                </h3>
+                <ul class="space-y-2.5 list-disc pl-5">
+                  <li>
+                    <strong>Sole Proprietorship (Registered Self-Employed / <em>Entreprise individuelle</em>):</strong> Costs approximately <strong>~$39 CAD</strong> with the <em>Registraire des entreprises du Québec (REQ)</em> to obtain your <strong>NEQ</strong> (<em>Numéro d'entreprise du Québec</em>). Simple and fast, but your personal liability is <strong>unlimited</strong> in the event of a major dispute.
+                  </li>
+                  <li>
+                    <strong>Corporation (Incorporation &ndash; Quebec Inc. or Canada Inc. / <em>Société par actions</em>):</strong> Costs approximately <strong>~$388 CAD</strong> (at the provincial level). Creates a separate legal entity (<em>personne morale distincte</em>): your personal patrimonio/assets are protected if an imported product causes damage or if a client defaults on payment.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pillar 2 -->
+              <div class="p-5 rounded-xl border border-slate-200 bg-white space-y-3 shadow-sm">
+                <h3 class="text-base font-extrabold text-navy-900 flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-xs flex items-center justify-center font-mono">2</span>
+                  Tax Accounts &amp; Federal Importer Number (CRA)
+                </h3>
+                <p class="text-xs text-slate-500">With the Canada Revenue Agency (CRA) and Revenu Québec, you must activate:</p>
+                <ol class="space-y-2 list-decimal pl-5">
+                  <li><strong>The 9-digit Business Number (BN / NE).</strong></li>
+                  <li>
+                    <strong>GST (<code class="font-mono font-bold text-navy-900">RT0001</code>) &amp; QST (<code class="font-mono font-bold text-navy-900">TQ0001</code>) Tax Accounts:</strong> Even though the law only requires registration starting at $30,000 in revenue, <strong>you must register on Day 1</strong>. In importation, registration allows you to recover <strong>100% of the 5% GST</strong> that you pay at customs (via <em>Input Tax Credits &ndash; ITCs / CTI</em>). Without a GST number, this 5% becomes a dead loss.
+                  </li>
+                  <li>
+                    <strong>Import-Export Program Account (<code class="font-mono font-bold text-navy-900">RM0001</code>):</strong> Free and activatable online in 10 minutes with the CRA. This number (e.g., <code class="font-mono bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded font-bold">123456789RM0001</code>) must appear on all your Chinese commercial invoices and customs declarations.
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Pillar 3: CARM -->
+            <div class="p-5 rounded-xl bg-amber-50/70 border border-amber-200 space-y-2.5">
+              <h3 class="text-base font-extrabold text-navy-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-xs flex items-center justify-center font-mono">3</span>
+                The CBSA CARM Client Portal (GCRA de l'ASFC)
+              </h3>
+              <p>The Canada Border Services Agency (<strong>CBSA / ASFC</strong>) mandatorily uses the <strong>CARM</strong> system (<em>CBSA Assessment and Revenue Management / Gestion des cotisations et des recettes de l'ASFC</em>):</p>
+              <ul class="space-y-2 list-disc pl-5">
+                <li><strong>Mandatory Registration:</strong> Every enterprise importing into Canada must link its <code class="font-mono font-bold">RM0001</code> number on the CARM online portal.</li>
+                <li><strong>Delegation of Authority:</strong> When a container or parcel arrives via a customs broker (<strong>Livingston, Kuehne+Nagel, DHL, FedEx</strong>), that broker cannot legally clear your merchandise unless you have clicked <strong>"Approve Business Relationship"</strong> inside your CARM portal.</li>
+                <li><strong>Release Prior to Payment Program (RPP / MAP):</strong> So that your goods are released immediately at the border before you have even paid customs duties, CARM requires a <strong>financial security</strong> (either a cash deposit in your CARM account, or an annual surety bond via an insurance company costing approximately <strong>$250 to $500 CAD/year</strong> to cover a $25,000 monthly tax limit).</li>
+              </ul>
+            </div>
+
+            <!-- Pillar 4: Two Operating Models Table -->
+            <div class="space-y-2.5">
+              <h3 class="text-base font-extrabold text-navy-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-navy-900 text-gold-400 text-xs flex items-center justify-center font-mono">4</span>
+                The Two Operating Models (Who is the Importer of Record - IOR?)
+              </h3>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                  <thead>
+                    <tr class="bg-navy-900 text-white text-xs uppercase">
+                      <th class="py-3 px-4">Business Model</th>
+                      <th class="py-3 px-4">Who is the Importer of Record (IOR)?</th>
+                      <th class="py-3 px-4">Financial Operation</th>
+                      <th class="py-3 px-4">Advantages &amp; Risks</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white">
+                    <tr>
+                      <td class="py-3.5 px-4 font-bold text-navy-900">1. Turnkey Buy-Resell (Client DDP)</td>
+                      <td class="py-3.5 px-4 font-mono font-bold text-gold-600">Ghandour Import (Your RM0001)</td>
+                      <td class="py-3.5 px-4">You buy from the factory in China, pay freight and customs, and resell to the Quebec client on a single invoice in CAD (+ GST/QST).</td>
+                      <td class="py-3.5 px-4"><strong>Higher margin (15% to 35%)</strong> and the client never sees the factory name or real price. However, you assume legal product liability in Canada.</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3.5 px-4 font-bold text-navy-900">2. Commission Sourcing Agency</td>
+                      <td class="py-3.5 px-4 font-mono font-bold text-slate-700">Your Client (Their own RM0001)</td>
+                      <td class="py-3.5 px-4">The client pays the factory and customs directly. You invoice them consulting fees for sourcing, negotiation, and inspection in China.</td>
+                      <td class="py-3.5 px-4"><strong>Near-zero legal and financial risk.</strong> Paid by commission (<strong>5% to 12%</strong> of the order + initial search fee of <strong>$300 to $500</strong>). Risk that the client tries to contact the factory alone on their 2nd order.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 2,
+        shortTab: '2. Sourcing & NNN',
+        title: 'Module 2: Sourcing, Factory Audits & Legal Protection in China',
+        tags: '1688 vs Alibaba, NECIPS 营业执照, 生产/制造, Mandarin NNN (300k RMB), 30%/70% T/T Post-PSI',
+        linkedTool: 'checklist',
+        linkedToolLabel: 'Open NECIPS Auditor & NNN Clause Tool',
+        html: `
+          <div class="space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 font-medium text-navy-900">
+              Your major competitive advantage is your local team in China. Below is the exact methodology it must apply to secure every transaction.
+            </div>
+
+            <!-- 1. Direct Factory vs Trading Company -->
+            <div class="space-y-2.5">
+              <h3 class="text-base font-extrabold text-navy-900">1. Direct Factory (Manufacturer) vs. Trading Company</h3>
+              <p>On <strong>Alibaba</strong>, <strong>Made-in-China</strong>, or <strong>1688</strong> (the 100% Chinese domestic platform, often <strong>15% to 30% cheaper</strong> than Alibaba), <strong>70% of sellers claiming to be "factories" are in reality middlemen (Trading Companies)</strong>.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200">
+                  <div class="font-bold text-emerald-950 mb-1"><i class="fa-solid fa-industry mr-1"></i> When to choose a True Factory:</div>
+                  <p class="text-xs text-emerald-900">Medium-to-large volume orders, technical customization (OEM/ODM), and need for the lowest source price.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-sky-50 border border-sky-200">
+                  <div class="font-bold text-sky-950 mb-1"><i class="fa-solid fa-boxes-stacked mr-1"></i> When to tolerate a Trading Company:</div>
+                  <p class="text-xs text-sky-900">Small quantities (very low MOQ) or orders consolidating 10 small distinct products coming from separate factories.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. 4-Point NECIPS Protocol -->
+            <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 class="text-base font-extrabold text-navy-900">2. Official Chinese Company Verification (The 4-Point NECIPS Protocol)</h3>
+              <p>Before sending a single dollar, your team in China must demand the <strong>Chinese Business License</strong> (<em>Business License</em> / <span class="zh-badge">营业执照</span>) and verify on the national government system (<strong>NECIPS</strong>):</p>
+              <ol class="space-y-2.5 list-decimal pl-5">
+                <li><strong>18-Character USCC Number (Unified Social Credit Code):</strong> Proves the legal existence of the corporation.</li>
+                <li>
+                  <strong>Business Scope (<span class="zh-badge">经营范围</span>):</strong> This is where fake manufacturers are unmasked. A true factory will mandatorily have the characters <span class="zh-badge">生产</span> (Production) or <span class="zh-badge">制造</span> (Manufacturing) in this box. If it only reads <span class="zh-badge">批发</span> / <span class="zh-badge">销售</span> / <span class="zh-badge">贸易</span> (Wholesale / Sales / Trade), it is an intermediary.
+                </li>
+                <li><strong>Registered Capital (<span class="zh-badge">注册资本</span>):</strong> A serious factory generally displays registered capital of at least <strong>500,000 to 2,000,000 RMB</strong> (~$100,000 to $400,000 CAD).</li>
+                <li><strong>Beneficiary Bank Account:</strong> The name on the bank wire details (in USD or RMB) must match the <strong>exact official company name on the license</strong> (and never a salesperson's personal account or an unrelated Hong Kong shell company).</li>
+              </ol>
+            </div>
+
+            <!-- 3. NNN Agreement & 4. PO/Payment Security -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div class="p-5 rounded-xl border border-slate-200 bg-white space-y-2.5 shadow-sm">
+                <h3 class="text-base font-extrabold text-navy-900">3. The NNN Contract (Why a Western NDA is Worthless in China)</h3>
+                <p>In the West, companies sign an NDA (<em>Non-Disclosure Agreement</em>). In China, an NDA drafted in English and subject to Quebec courts is <strong>unenforceable</strong>: Chinese courts do not recognize foreign judgments of this type, and the problem in China is not that the factory discloses your secret to the public, but that it uses it itself or sells directly to your client.</p>
+                <p class="font-bold text-navy-900">You must use an NNN Agreement:</p>
+                <ul class="space-y-1.5 list-disc pl-5">
+                  <li><strong>Non-Disclosure:</strong> Forbids sharing your blueprints/products with unauthorized subcontractors.</li>
+                  <li><strong>Non-Use:</strong> Forbids the factory from manufacturing and selling your product under its own brand.</li>
+                  <li><strong>Non-Circumvention:</strong> Strictly forbids the factory from contacting your clients in Quebec or accepting direct orders from them (protects Ghandour Import's intermediary role).</li>
+                </ul>
+                <div class="p-3 rounded-lg bg-amber-50 border border-amber-200 text-xs">
+                  <strong>The 3 Rules of NNN Validity:</strong> Drafted in <strong>Mandarin</strong> (or bilingual with Mandarin prevailing), governed by <strong>Chinese law and the People's Court of the factory's city</strong>, and containing a predetermined <strong>Liquidated Damages clause</strong> (e.g., a fixed penalty of <strong>300,000 RMB</strong> in case of violation, enabling the local court to freeze the factory's bank accounts).
+                </div>
+              </div>
+
+              <div class="p-5 rounded-xl border border-slate-200 bg-white space-y-2.5 shadow-sm">
+                <h3 class="text-base font-extrabold text-navy-900">4. Purchase Order (Sales Contract) &amp; Payments</h3>
+                <p>Never rely on a simple 1-page <em>Proforma Invoice (PI)</em>. Every order must specify:</p>
+                <ul class="space-y-1.5 list-disc pl-5">
+                  <li><strong>Detailed Technical Spec Sheet:</strong> Exact materials, dimensions, tolerances in mm, Pantone color codes, and shipping carton GSM grammage.</li>
+                  <li><strong>Production Completion Deadline &amp; Late Penalty:</strong> e.g., <strong>1% discount per week of delay</strong>.</li>
+                  <li>
+                    <strong>Standard Safe Payment Structure &mdash; T/T Bank Wire (30% / 70%):</strong> Pay a <strong>30% deposit</strong> to launch raw material purchases. Pay the remaining <strong>70% ONLY AFTER</strong> your on-site team in China has conducted the final factory inspection (PSI) and validated quality (before goods leave the warehouse).
+                  </li>
+                </ul>
+                <div class="p-3 rounded-lg bg-red-50 border border-red-200 text-xs text-red-900">
+                  <strong><i class="fa-solid fa-triangle-exclamation mr-1"></i> Trap to Avoid:</strong> Many factories propose <em>"30% deposit / 70% against copy of Bill of Lading (B/L)"</em>. <strong>Refuse this condition:</strong> if the container is already on the ocean when you pay the 70%, it is too late to inspect quality.
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 3,
+        shortTab: '3. Quality & AQL',
+        title: 'Module 3: Quality Control (QC) & Inspection Standards in China',
+        tags: 'ISO 2859-1, IPC, DUPRO, PSI (80% Packed), CLC Bolt Seal, AQL 0.0 / 2.5 / 4.0',
+        linkedTool: 'aql',
+        linkedToolLabel: 'Open ISO 2859-1 AQL Calculator',
+        html: `
+          <div class="space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 font-medium text-navy-900">
+              For your team in China to inspect like an international engineering firm (<strong>SGS, Bureau Veritas, or QIMA</strong>), it must follow the statistical protocol <strong>ISO 2859-1 (AQL)</strong>.
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="text-base font-extrabold text-navy-900">1. The 4 Factory Inspection Phases</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-navy-800">Phase 1</span>
+                  <div class="font-bold text-navy-900 mt-2">IPC (Initial Production Check)</div>
+                  <p class="text-xs text-slate-600 mt-1">Verification of raw materials and components before assembly begins.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-navy-800">Phase 2</span>
+                  <div class="font-bold text-navy-900 mt-2">DUPRO (During Production)</div>
+                  <p class="text-xs text-slate-600 mt-1">Performed when <strong>20% to 30%</strong> of units are manufactured. Immediately corrects recurring assembly-line defects without waiting for 100% of the lot to be ruined.</p>
+                </div>
+                <div class="p-4 rounded-xl border-2 border-gold-500 bg-amber-50/40 shadow-sm">
+                  <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-gold-500 text-navy-950">Phase 3 &bull; Mandatory</span>
+                  <div class="font-bold text-navy-900 mt-2">PSI (Pre-Shipment Inspection)</div>
+                  <p class="text-xs text-slate-700 mt-1">Performed when <strong>100% of production is finished and at least 80% is packed</strong> in cartons. This report (photos, videos, measurements) triggers the final 70% payment.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-navy-800">Phase 4</span>
+                  <div class="font-bold text-navy-900 mt-2">CLC (Container Loading Check)</div>
+                  <p class="text-xs text-slate-600 mt-1">Supervision the morning of loading. Your team verifies the container is not punctured or damp, counts exact boxes loaded, and photographs the high-security <strong>Bolt Seal</strong> locked on the doors.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="text-base font-extrabold text-navy-900">2. The Statistical Standard AQL (Acceptable Quality Limit &mdash; ISO 2859-1 Level II)</h3>
+              <p>If a client orders 5,000 pieces, your team will not inspect all 5,000 units one by one. Standard <strong>ISO 2859-1 (General Inspection Level II)</strong> dictates exactly how many units to pull at random and how many defects are tolerated before rejecting the entire lot:</p>
+              <ul class="space-y-1.5 list-disc pl-5">
+                <li><strong>Critical Defects (Tolerance: AQL 0.0):</strong> Product dangerous for the user, non-compliant with Canadian laws, or improper legal marking. If <strong>even 1 critical defect</strong> is found, the entire order is refused.</li>
+                <li><strong>Major Defects (Standard: AQL 1.5 or 2.5):</strong> Functional defect, wrong dimension, or visible scratch preventing retail sale.</li>
+                <li><strong>Minor Defects (Standard: AQL 4.0):</strong> Very slight cosmetic flaw that the end buyer will probably not notice.</li>
+              </ul>
+
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                  <thead>
+                    <tr class="bg-navy-900 text-white text-xs uppercase">
+                      <th class="py-3 px-4">Total Order Size</th>
+                      <th class="py-3 px-4">Random Sample to Pull</th>
+                      <th class="py-3 px-4">Lot Refused if Major Defects (2.5) &ge;</th>
+                      <th class="py-3 px-4">Lot Refused if Minor Defects (4.0) &ge;</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white font-mono">
+                    <tr>
+                      <td class="py-2.5 px-4">151 to 280 units</td>
+                      <td class="py-2.5 px-4 font-bold text-navy-900">32 units</td>
+                      <td class="py-2.5 px-4 text-red-600 font-bold">3 units</td>
+                      <td class="py-2.5 px-4 text-amber-700 font-bold">4 units</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-2.5 px-4">501 to 1,200 units</td>
+                      <td class="py-2.5 px-4 font-bold text-navy-900">80 units</td>
+                      <td class="py-2.5 px-4 text-red-600 font-bold">6 units</td>
+                      <td class="py-2.5 px-4 text-amber-700 font-bold">8 units</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 px-4">1,201 to 3,200 units</td>
+                      <td class="py-2.5 px-4 font-bold text-navy-900">125 units</td>
+                      <td class="py-2.5 px-4 text-red-600 font-bold">8 units</td>
+                      <td class="py-2.5 px-4 text-amber-700 font-bold">11 units</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-2.5 px-4">3,201 to 10,000 units</td>
+                      <td class="py-2.5 px-4 font-bold text-navy-900">200 units</td>
+                      <td class="py-2.5 px-4 text-red-600 font-bold">11 units</td>
+                      <td class="py-2.5 px-4 text-amber-700 font-bold">15 units</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-900 font-semibold text-xs">
+                If the lot is refused (<strong>Fail</strong>), the factory must sort 100% of the cartons at its own expense, replace the defective pieces, and submit to a second inspection before being paid.
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 4,
+        shortTab: '4. Incoterms 2020',
+        title: 'Module 4: Incoterms 2020 (Mastering Responsibilities & Traps)',
+        tags: 'ICC Incoterms 2020, EXW, FCA, FOB (King of Incoterms 90%), CFR/CIF LCL Trap, DAP, DDP Trap',
+        linkedTool: 'landed',
+        linkedToolLabel: 'Simulate FOB Landed Cost',
+        html: `
+          <div class="space-y-5 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 font-medium text-navy-900">
+              Published by the International Chamber of Commerce (ICC), <strong>Incoterms 2020</strong> define with surgical precision who pays for what and at which exact square meter the risk (loss, theft, damage) transfers from the factory to <strong>Ghandour Import</strong>.
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+              <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr class="bg-navy-900 text-white text-xs uppercase">
+                    <th class="py-3 px-4">Incoterm</th>
+                    <th class="py-3 px-4">Full Name</th>
+                    <th class="py-3 px-4">Where Factory Responsibility Ends</th>
+                    <th class="py-3 px-4">Who Pays Ocean/Air Freight?</th>
+                    <th class="py-3 px-4">Who Handles Canadian Customs?</th>
+                    <th class="py-3 px-4">Verdict for Ghandour Import</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 bg-white">
+                  <tr>
+                    <td class="py-3 px-4 font-mono font-bold text-navy-900">EXW</td>
+                    <td class="py-3 px-4 font-semibold">Ex Works</td>
+                    <td class="py-3 px-4">At the factory door in China (goods unloaded).</td>
+                    <td class="py-3 px-4 font-semibold">You</td>
+                    <td class="py-3 px-4 font-semibold">You</td>
+                    <td class="py-3 px-4">Useful for small parcels or if your forwarder picks up across multiple factories to consolidate. <strong>Warning:</strong> the factory does not even handle Chinese export customs.</td>
+                  </tr>
+                  <tr class="bg-slate-50">
+                    <td class="py-3 px-4 font-mono font-bold text-navy-900">FCA</td>
+                    <td class="py-3 px-4 font-semibold">Free Carrier</td>
+                    <td class="py-3 px-4">At your forwarder's warehouse in China (export customs included).</td>
+                    <td class="py-3 px-4 font-semibold">You</td>
+                    <td class="py-3 px-4 font-semibold">You</td>
+                    <td class="py-3 px-4">Very good if you consolidate purchases from 3 or 4 factories into a single warehouse in Shenzhen or Ningbo.</td>
+                  </tr>
+                  <tr class="bg-amber-50/90 border-l-4 border-gold-500">
+                    <td class="py-3.5 px-4 font-mono font-extrabold text-navy-950">FOB</td>
+                    <td class="py-3.5 px-4 font-bold text-navy-950">Free On Board</td>
+                    <td class="py-3.5 px-4 font-medium">When goods are loaded on board the vessel at the Chinese port (e.g., FOB Ningbo).</td>
+                    <td class="py-3.5 px-4 font-bold">You</td>
+                    <td class="py-3.5 px-4 font-bold">You</td>
+                    <td class="py-3.5 px-4"><strong class="text-emerald-800">THE KING OF INCOTERMS (Recommended 90% of the time).</strong> The factory pays trucking in China, Chinese port charges, and export customs. You choose your own forwarder for the vessel and control 100% of costs.</td>
+                  </tr>
+                  <tr class="bg-red-50/70">
+                    <td class="py-3.5 px-4 font-mono font-bold text-red-800">CFR / CIF</td>
+                    <td class="py-3.5 px-4 font-semibold text-red-900">Cost, Insurance &amp; Freight</td>
+                    <td class="py-3.5 px-4">Risk passes to you at the Chinese port, but the factory pays the vessel to Montreal/Vancouver.</td>
+                    <td class="py-3.5 px-4">The Factory</td>
+                    <td class="py-3.5 px-4 font-semibold">You</td>
+                    <td class="py-3.5 px-4"><strong class="text-red-800">TRAP TO AVOID ABSOLUTELY IN LCL.</strong> The factory sells you discounted ocean freight (sometimes $0), but its Chinese forwarder reimburses itself by charging you abusive deconsolidation fees (<strong>$1,500 to $3,000</strong>) upon arrival in Montreal to release your cargo.</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-mono font-bold text-navy-900">DAP</td>
+                    <td class="py-3 px-4 font-semibold">Delivered at Place</td>
+                    <td class="py-3 px-4">Delivered outside your warehouse door in Montreal (truck not unloaded).</td>
+                    <td class="py-3 px-4">The Factory</td>
+                    <td class="py-3 px-4 font-semibold">You</td>
+                    <td class="py-3 px-4">Convenient for DHL/FedEx shipments: the courier brings the boxes to Montreal, and you pay only customs duties and GST.</td>
+                  </tr>
+                  <tr class="bg-slate-50">
+                    <td class="py-3 px-4 font-mono font-bold text-navy-900">DDP</td>
+                    <td class="py-3 px-4 font-semibold">Delivered Duty Paid</td>
+                    <td class="py-3 px-4">Delivered to your door in Montreal, everything paid (freight + customs + taxes).</td>
+                    <td class="py-3 px-4">Factory / Forwarder</td>
+                    <td class="py-3 px-4">Factory / Forwarder</td>
+                    <td class="py-3 px-4">Convenient <strong>only for samples or small express shipments</strong>. For large commercial orders, <strong>avoid DDP</strong>: Chinese forwarders often declare a fake customs value under a dubious importer number, preventing you from having legal proof of importation with CBSA and from recovering your 5% GST.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 5,
+        shortTab: '5. Freight & CBM',
+        title: 'Module 5: International Logistics, Freight & Physical Calculations',
+        tags: 'Express /5000, Air /6000, Ocean LCL W/M, FCL 20/40/40HQ (85-88% Rule), Demurrage & Detention',
+        linkedTool: 'freight',
+        linkedToolLabel: 'Open CBM & Container Simulator',
+        html: `
+          <div class="space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <!-- 4 Modes -->
+            <div class="space-y-3">
+              <h3 class="text-base font-extrabold text-navy-900">1. The 4 Modes of Transport (China &rarr; Montreal)</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <div class="font-bold text-navy-900">1. Express Courier (DHL, FedEx, UPS)</div>
+                  <p class="text-xs text-slate-600 mt-1"><strong>Ideal for:</strong> Samples &amp; urgent orders from <strong>1 kg to 150 kg</strong> (&lt; 1 to 2 CBM).</p>
+                  <p class="text-xs font-mono font-bold text-gold-600 mt-1.5">Transit: 3 to 6 business days door-to-door.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <div class="font-bold text-navy-900">2. Classic Air Cargo</div>
+                  <p class="text-xs text-slate-600 mt-1"><strong>Ideal for:</strong> High-value or urgent goods from <strong>150 kg to 1,500 kg</strong>. Arrives at Montreal-Trudeau Airport (<strong>YUL</strong>). Requires customs broker and local trucker to clear bonded warehouse in Dorval.</p>
+                  <p class="text-xs font-mono font-bold text-gold-600 mt-1.5">Transit: 6 to 10 days.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <div class="font-bold text-navy-900">3. Ocean Freight LCL (Consolidation)</div>
+                  <p class="text-xs text-slate-600 mt-1"><strong>Ideal for:</strong> Volumes from <strong>2 m&sup3; (CBM) to 15 m&sup3; (CBM)</strong>. Pallets share a container. Ship China &rarr; Port of Vancouver or Prince Rupert, then CN/CP rail to Montreal terminal (stripped in a bonded <strong>CFS Warehouse</strong>).</p>
+                  <p class="text-xs font-mono font-bold text-gold-600 mt-1.5">Transit: 28 to 40 days.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <div class="font-bold text-navy-900">4. Ocean Freight FCL (Full Container)</div>
+                  <p class="text-xs text-slate-600 mt-1"><strong>Ideal for:</strong> Any volume exceeding <strong>15 to 18 m&sup3; (CBM)</strong>. Starting at 15 CBM, renting a full 20-foot container is often cheaper than paying per cubic meter in LCL, and your cargo is never handled between the factory and Montreal.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Container Table -->
+            <div class="space-y-2">
+              <h3 class="text-base font-extrabold text-navy-900">2. Dimensions &amp; Real Capacities of Maritime Containers (85% to 88% Rule)</h3>
+              <p class="text-xs text-slate-500">Never rely on theoretical maximum volume: due to box and pallet shapes, only ~85% to 88% of interior space can be utilized.</p>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                  <thead>
+                    <tr class="bg-navy-900 text-white text-xs uppercase">
+                      <th class="py-3 px-4">Container Type</th>
+                      <th class="py-3 px-4">Interior Dimensions (L&times;W&times;H)</th>
+                      <th class="py-3 px-4">Theoretical Volume</th>
+                      <th class="py-3 px-4 text-gold-300">Real Loadable Volume</th>
+                      <th class="py-3 px-4">Max Payload (Weight)</th>
+                      <th class="py-3 px-4">Standard N.A. Pallets (40"&times;48")</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white font-mono text-xs">
+                    <tr>
+                      <td class="py-2.5 px-4 font-bold text-navy-900">20' Dry (20 feet)</td>
+                      <td class="py-2.5 px-4">5.89m &times; 2.35m &times; 2.39m</td>
+                      <td class="py-2.5 px-4">33.2 m&sup3;</td>
+                      <td class="py-2.5 px-4 font-bold text-emerald-700">26 to 28 CBM</td>
+                      <td class="py-2.5 px-4">~21,700 kg to 28,000 kg</td>
+                      <td class="py-2.5 px-4 font-sans">10 pallets (unstacked)</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-2.5 px-4 font-bold text-navy-900">40' Dry (40 feet)</td>
+                      <td class="py-2.5 px-4">12.03m &times; 2.35m &times; 2.39m</td>
+                      <td class="py-2.5 px-4">67.7 m&sup3;</td>
+                      <td class="py-2.5 px-4 font-bold text-emerald-700">56 to 58 CBM</td>
+                      <td class="py-2.5 px-4">~26,700 kg</td>
+                      <td class="py-2.5 px-4 font-sans">20 to 21 pallets (unstacked)</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 px-4 font-bold text-navy-900">40' HQ (High Cube)</td>
+                      <td class="py-2.5 px-4">12.03m &times; 2.35m &times; 2.69m</td>
+                      <td class="py-2.5 px-4">76.4 m&sup3;</td>
+                      <td class="py-2.5 px-4 font-bold text-emerald-700">65 to 68 CBM</td>
+                      <td class="py-2.5 px-4">~26,500 kg</td>
+                      <td class="py-2.5 px-4 font-sans">20 to 21 pallets (+30 cm height)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Math Formulas & Port Penalties -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div class="p-5 rounded-xl border border-slate-200 bg-white space-y-2 shadow-sm">
+                <h3 class="text-base font-extrabold text-navy-900">3. Mathematical Formulas for Freight Billing</h3>
+                <p>Carriers always bill by <strong>Chargeable Weight</strong> (the higher figure between Actual Gross Weight and Volumetric Weight):</p>
+                <ul class="space-y-1.5 list-disc pl-5">
+                  <li><strong>A. Volume in Cubic Meters (CBM):</strong> <code class="font-mono font-bold">CBM of 1 Box = (L cm &times; W cm &times; H cm) / 1,000,000</code>; <code class="font-mono font-bold">Total CBM = Box CBM &times; Total Boxes</code>.</li>
+                  <li><strong>B. Express Courier (DHL / FedEx / UPS):</strong> Divisor is <strong>5,000</strong> (<code class="font-mono">1 CBM = 200 kg</code>). Formula: <code class="font-mono">((L &times; W &times; H) / 5,000) &times; Boxes</code>. <em>Concrete Example:</em> Importing 10 boxes of cushions via DHL weighing 50 kg total, each measuring 60&times;50&times;50 cm (1.5 CBM total). Volumetric weight = <code class="font-mono">((60&times;50&times;50)/5000)&times;10 = 300 kg</code>. DHL bills for <strong>300 kg</strong>, not 50 kg!</li>
+                  <li><strong>Classic Air Cargo:</strong> Divisor is <strong>6,000</strong> (<code class="font-mono">1 CBM = 166.67 kg</code>).</li>
+                  <li><strong>C. Ocean LCL Rule (W/M Ratio &mdash; Weight or Measure):</strong> <code class="font-mono">1 CBM = 1,000 kg (1 metric ton)</code>. 3 CBM weighing 800 kg (0.8 t) = pay for <strong>3 CBM</strong>. Cast-iron steel parts taking 1 CBM but weighing 2,500 kg (2.5 t) = pay for <strong>2.5 CBM</strong>.</li>
+                </ul>
+              </div>
+
+              <div class="p-5 rounded-xl border border-red-200 bg-red-50/50 space-y-2">
+                <h3 class="text-base font-extrabold text-red-950">4. The 3 Port Penalties to Avoid in Montreal &amp; Vancouver</h3>
+                <ol class="space-y-2 list-decimal pl-5 text-red-950">
+                  <li><strong>Demurrage (Surestaries):</strong> Once your container is unloaded at the port or rail terminal in Montreal, you have a free period (<strong>Free Time, typically 3 to 5 business days</strong>) to clear customs and pick it up by truck. Past this deadline, the terminal charges <strong>$150 to $400 CAD per day of delay</strong>.</li>
+                  <li><strong>Detention (Per Diem):</strong> Once the trucker pulls the container out of the port to deliver to your client, you have a free window (<strong>often 2 to 4 days</strong>) to unload it and return the empty container to the marine depot.</li>
+                  <li><strong>LCL Bonded Warehouse Storage (CFS Storage):</strong> In LCL consolidation, if you do not pick up your pallets within <strong>3 to 5 days</strong> after container stripping in Montreal, the bonded warehouse charges steep storage fees per pallet.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 6,
+        shortTab: '6. CBSA Documents',
+        title: 'Module 6: The Import Documentation Package (Zero CBSA Holds)',
+        tags: 'Commercial Invoice, Packing List, Telex Release B/L, ACI eManifest (24h), ISPM 15 / Plastic Pallets',
+        linkedTool: 'checklist',
+        linkedToolLabel: 'Verify Documentary Checklist',
+        html: `
+          <div class="space-y-5 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-red-50 border border-red-200 text-red-950 font-medium">
+              <i class="fa-solid fa-triangle-exclamation mr-1"></i> A single contradictory figure across your documents can trigger a physical container examination by CBSA (costing the importer between <strong>$300 and $2,500 CAD</strong> and delaying delivery by <strong>2 weeks</strong>). Before the ship leaves China, verify these <strong>5 mandatory documents</strong>:
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-sm space-y-2">
+                <h3 class="text-base font-extrabold text-navy-900">1. Commercial Invoice</h3>
+                <p>Used by CBSA to calculate duties and taxes. Must mandatorily contain:</p>
+                <ul class="list-disc pl-5 space-y-1.5">
+                  <li>Complete contact details of the Chinese seller and Canadian buyer/importer + your <strong>RM0001</strong> number.</li>
+                  <li><strong>Incoterm 2020 followed by the city</strong> (e.g., <em>FOB Ningbo, China</em>) and currency (e.g., <em>USD</em>).</li>
+                  <li>Country of Origin: <strong>Country of Origin: China</strong>.</li>
+                  <li>Clear and precise description of each item (include material and use). It is <strong>strictly forbidden</strong> to write vague terms like <em>"General Merchandise", "Gift", "Parts", or "Samples"</em>.</li>
+                  <li><strong>HS Code</strong> of at least 6 digits for each product line, plus quantity, unit price, and total amount.</li>
+                </ul>
+              </div>
+
+              <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-sm space-y-2">
+                <h3 class="text-base font-extrabold text-navy-900">2. Packing List</h3>
+                <p>Must match the Commercial Invoice to the exact gram and unit:</p>
+                <ul class="list-disc pl-5 space-y-1.5">
+                  <li>Total number of cartons and pallets.</li>
+                  <li>Exact carton dimensions and total volume in <strong>CBM</strong>.</li>
+                  <li><strong>Net Weight:</strong> Weight of the merchandise alone without cartons.</li>
+                  <li><strong>Gross Weight:</strong> Total weight including cartons and pallets (must be <strong>strictly identical</strong> to the weight written on the Bill of Lading).</li>
+                </ul>
+              </div>
+
+              <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-sm space-y-2">
+                <h3 class="text-base font-extrabold text-navy-900">3. Marine Bill of Lading (B/L) or Air Waybill (AWB)</h3>
+                <p>This is both the contract of carriage AND the legal title of property to the merchandise.</p>
+                <div class="p-3.5 rounded-lg bg-amber-50 border border-amber-200 text-xs text-amber-950">
+                  <strong>Golden Rule &mdash; Demand a Telex Release (or Sea Waybill / Surrendered B/L):</strong> By default, an Original Bill of Lading is printed in 3 paper copies in China that the factory must mail to you via DHL so you can physically hand them to the carrier in Montreal. If the courier is lost, your container remains blocked at the port. As soon as you pay the 70% balance to the factory, instruct them to surrender the originals to the carrier in China and issue a B/L stamped <strong>"TELEX RELEASE"</strong> or <strong>"SURRENDERED"</strong>: this releases the merchandise electronically in Montreal without any physical paper.
+                </div>
+              </div>
+
+              <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-sm space-y-2">
+                <h3 class="text-base font-extrabold text-navy-900">4. CBSA ACI eManifest &amp; 5. ISPM 15 (NIMP 15) Wood Standard</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                  <li>
+                    <strong>CBSA Advance Commercial Information (ACI eManifest / IPEC):</strong> In Canada, the forwarder must electronically transmit your cargo details to CBSA at least <strong>24 hours before</strong> the container is loaded onto the ship in China. Any delay or omission triggers immediate <strong>AMPS (SAP)</strong> monetary penalties from Canadian customs.
+                  </li>
+                  <li>
+                    <strong>ISPM 15 (NIMP 15) on Wood Packaging (#1 cause of container refusal in Canada):</strong> If the Chinese factory ships your goods on solid wood pallets or raw wood crates, that wood must mandatorily be heat-treated or fumigated and bear the official <strong>IPPC stamp</strong> visible on two opposite sides. If a CBSA inspector opens your container in Montreal and sees a raw wood pallet without an IPPC stamp, CBSA forbids entry into Canada and forces you to re-export the entire container abroad at your expense.
+                  </li>
+                  <li class="font-bold text-emerald-800">
+                    Pro Tip to Impose on Your Factories: Systematically require <strong>plastic pallets or plywood/presswood (engineered wood) pallets</strong>, which are 100% exempt from ISPM 15 and can never be blocked!
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 7,
+        shortTab: '7. Customs & Landed Cost',
+        title: 'Module 7: Canadian Customs, HS Codes, Taxes & Landed Cost Math',
+        tags: '10-Digit HS Code (9401.71.10.10), MFN Tariff, SIMA Antidumping (30%-290%), VFD, VFT, 5% GST ITCs',
+        linkedTool: 'landed',
+        linkedToolLabel: 'Open Interactive Landed Cost Calculator',
+        html: `
+          <div class="space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-sm space-y-2.5">
+                <h3 class="text-base font-extrabold text-navy-900">1. How the 10-Digit HS Code Works in Canada</h3>
+                <p>Every physical product on Earth has a classification code in the Customs Tariff of Canada. Example for an upholstered office chair with metal frame: <code class="font-mono font-bold bg-slate-100 px-2 py-0.5 rounded text-navy-900">9401.71.10.10</code></p>
+                <ul class="list-disc pl-5 space-y-1.5">
+                  <li><strong>9401.71 (First 6 digits &mdash; International):</strong> Identical in 200+ countries (94 = Furniture, 01 = Seats, 71 = Upholstered with metal frame).</li>
+                  <li><strong>.10 (Digits 7 &amp; 8 &mdash; Canadian Tariff Item):</strong> Specific to Canada. Determines your duty rate % (here, <code class="font-mono">.10</code> for domestic use = <strong>8%</strong>, whereas <code class="font-mono">.90</code> for commercial/industrial use = <strong>0%</strong>!).</li>
+                  <li><strong>.10 (Digits 9 &amp; 10 &mdash; Statistical Suffix):</strong> Used by Statistics Canada for economic tracking.</li>
+                  <li><strong>Tariff Applicable to China:</strong> China benefits from the <strong>MFN (Most-Favoured-Nation / TNPF)</strong> tariff column (typically between 0% and 18%).</li>
+                </ul>
+              </div>
+
+              <div class="p-5 rounded-xl border border-red-200 bg-red-50/70 space-y-2.5">
+                <h3 class="text-base font-extrabold text-red-950 flex items-center gap-2">
+                  <i class="fa-solid fa-gavel"></i> Critical Alert &mdash; SIMA (LMSI Anti-Dumping &amp; Surtaxes)
+                </h3>
+                <p class="text-red-950">
+                  Before accepting a sourcing mandate for a client, always check the list of <strong>SIMA Measures in Force</strong> on the CBSA website. Canada imposes punitive anti-dumping and countervailing duties ranging from <strong>30% to over 290%</strong> on specific categories coming from China (e.g., upholstered domestic seating/sofas, certain steel/aluminum components, carbon steel fasteners, solar panels, mattresses) as well as specific surtaxes (e.g., <strong>100% surtax on Chinese electric vehicles</strong> and <strong>25% surtax on certain steel and aluminum products</strong>).
+                </p>
+              </div>
+            </div>
+
+            <!-- 2. Exact CBSA Customs Formula -->
+            <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2.5">
+              <h3 class="text-base font-extrabold text-navy-900">2. The Exact Mathematical Formula of Canadian Customs (CBSA)</h3>
+              <ol class="list-decimal pl-5 space-y-2">
+                <li><strong>Value for Duty (VFD / VED):</strong> In Canada, customs duties are calculated on the <strong>FOB value</strong> of the merchandise (international ocean/air freight between the direct port of shipment in China and Canada is NOT subject to customs duties, as long as it is invoiced separately!). CBSA converts your USD invoice into CAD using the official Bank of Canada exchange rate in effect on the date of direct shipment (Bill of Lading date): <code class="font-mono font-bold text-navy-900">VFD (CAD) = FOB Value (USD) &times; CBSA Exchange Rate</code>.</li>
+                <li><strong>Customs Duty (DD):</strong> <code class="font-mono font-bold text-navy-900">Customs Duty = VFD &times; HS Code MFN Rate (%)</code>.</li>
+                <li><strong>Value for Tax (VFT):</strong> GST applies on the value of the goods PLUS customs duties (tax on a tax): <code class="font-mono font-bold text-navy-900">VFT = VFD + Customs Duty</code>.</li>
+                <li><strong>Import GST (5%):</strong> <code class="font-mono font-bold text-navy-900">GST Payable to CBSA = VFT &times; 5%</code>. <em>(Major Reminder: For a commercial importation, CBSA does not charge the 9.975% QST at the border. Moreover, the 5% GST paid to CBSA is 100% refunded to you by Revenu Québec on your next tax return via ITCs! It affects short-term cash flow, but is NOT part of your net cost of goods!)</em></li>
+              </ol>
+            </div>
+
+            <!-- 3. Complete Case Study Table (1,000 Backpacks) -->
+            <div class="space-y-3">
+              <h3 class="text-base font-extrabold text-navy-900">3. Complete Quantified Case Study: Landed Cost Calculation (Ningbo &rarr; Montreal)</h3>
+              <p><strong>Scenario:</strong> A Quebec client orders <strong>1,000 custom technical backpacks</strong> at <strong>$12.00 USD / unit FOB Ningbo</strong> ($12,000 USD total), HS Code <code class="font-mono font-bold">4202.92.90.10</code> (MFN Duty Rate = <strong>11%</strong>), Total Volume = <strong>10 CBM</strong> (Ocean LCL Ningbo &rarr; Montreal), Exchange Rate USD &rarr; CAD = <strong>1.38</strong>.</p>
+
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table class="w-full text-left border-collapse text-xs">
+                  <thead>
+                    <tr class="bg-navy-900 text-white uppercase">
+                      <th class="py-3 px-4">Expense Item</th>
+                      <th class="py-3 px-4">Detailed Calculation</th>
+                      <th class="py-3 px-4 text-right text-gold-300">Net Cost (Excl. Recoverable GST)</th>
+                      <th class="py-3 px-4 text-right">Cash Flow (With GST/QST)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white font-mono">
+                    <tr>
+                      <td class="py-2.5 px-4 font-sans font-bold text-navy-900">1. Factory Purchase (FOB Ningbo)</td>
+                      <td class="py-2.5 px-4 text-slate-600">$12,000 USD &times; 1.38 (+ ~$40 T/T wire fee)</td>
+                      <td class="py-2.5 px-4 text-right font-bold">$16,600.00 CAD</td>
+                      <td class="py-2.5 px-4 text-right">$16,600.00 CAD</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-2.5 px-4 font-sans font-bold text-navy-900">2. China Quality Inspection (PSI)</td>
+                      <td class="py-2.5 px-4 font-sans text-slate-600">Cost of local inspector (1 day in factory)</td>
+                      <td class="py-2.5 px-4 text-right font-bold">$250.00 CAD</td>
+                      <td class="py-2.5 px-4 text-right">$250.00 CAD</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 px-4 font-sans font-bold text-navy-900">3. Ocean LCL Freight + Mtl Delivery</td>
+                      <td class="py-2.5 px-4 font-sans text-slate-600">10 CBM Ningbo to Montreal warehouse (0% tax on int'l freight)</td>
+                      <td class="py-2.5 px-4 text-right font-bold">$1,450.00 CAD</td>
+                      <td class="py-2.5 px-4 text-right">$1,450.00 CAD</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-2.5 px-4 font-sans font-bold text-navy-900">4. Marine Cargo Insurance</td>
+                      <td class="py-2.5 px-4 text-slate-600">~0.5% of (110% &times; Value)</td>
+                      <td class="py-2.5 px-4 text-right font-bold">$95.00 CAD</td>
+                      <td class="py-2.5 px-4 text-right">$95.00 CAD</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 px-4 font-sans font-bold text-navy-900">5. Customs Broker Fee</td>
+                      <td class="py-2.5 px-4 text-slate-600">Customs entry fee + disbursements (~$125 + GST/QST)</td>
+                      <td class="py-2.5 px-4 text-right font-bold">$125.00 CAD</td>
+                      <td class="py-2.5 px-4 text-right">$143.72 CAD</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-2.5 px-4 font-sans font-bold text-navy-900">6. CBSA Customs Duty (11%)</td>
+                      <td class="py-2.5 px-4 text-slate-600">VFD ($16,560) &times; 11% (Final non-refundable cost)</td>
+                      <td class="py-2.5 px-4 text-right font-bold text-red-600">$1,821.60 CAD</td>
+                      <td class="py-2.5 px-4 text-right text-red-600">$1,821.60 CAD</td>
+                    </tr>
+                    <tr class="bg-emerald-50/70">
+                      <td class="py-2.5 px-4 font-sans font-bold text-emerald-950">7. GST Paid to CBSA (5%)</td>
+                      <td class="py-2.5 px-4 text-emerald-800">($16,560 + $1,821.60) &times; 5% = $919.08 (100% ITC)</td>
+                      <td class="py-2.5 px-4 text-right font-bold text-emerald-700">$0.00 CAD (Recovered)</td>
+                      <td class="py-2.5 px-4 text-right font-semibold text-emerald-800">$919.08 CAD (Advanced)</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr class="bg-navy-900 text-white font-mono">
+                      <td colspan="2" class="py-3 px-4 font-sans font-bold uppercase text-gold-400">TOTAL LANDED IN MONTREAL (1,000 Backpacks)</td>
+                      <td class="py-3 px-4 text-right font-extrabold text-gold-400">$20,341.60 CAD ($20.34/u)</td>
+                      <td class="py-3 px-4 text-right font-bold">$21,279.40 CAD</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+
+              <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs sm:text-sm space-y-1">
+                <div class="font-bold text-navy-900">How to Set Your Selling Price to the Quebec Client:</div>
+                <p>&bull; Factory exit price was $12.00 USD ($16.56 CAD), while true landed cost in Montreal is <strong>$20.34 CAD</strong> (a logistics &amp; customs multiplier of <strong>+22.8%</strong>).</p>
+                <p>&bull; Targeting a <strong>25% gross margin</strong> (<code class="font-mono font-bold">Selling Price = Cost / (1 - 0.25) = $20.34 / 0.75</code>), you invoice the client at <strong>$27.12 CAD / unit (+ GST &amp; QST)</strong>.</p>
+                <p>&bull; <strong>Net Profit on Order:</strong> <code class="font-mono font-bold">($27.12 - $20.34) &times; 1,000 = $6,780 CAD</code> (or <strong>$6,780.53 CAD</strong> unrounded), and the client pays you GST/QST on the $27,120 invoice, immediately reimbursing the $919.08 GST advanced at customs!</p>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 8,
+        shortTab: '8. Standards & Bill 96',
+        title: 'Module 8: Product Compliance, Canadian Standards & Quebec Bill 96',
+        tags: 'Bill 96 (OQLF French Labeling), CSA / cUL / cETL (120V), ISED (IC ID), CA Number, Health Canada CNF, Food Grade',
+        linkedTool: 'exam',
+        linkedToolLabel: 'Test Compliance Knowledge in Exam',
+        html: `
+          <div class="space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 font-medium text-navy-900">
+              As an importer in Canada, the law considers you in the eyes of <strong>Health Canada</strong> and consumer protection authorities <strong>as if you were the manufacturer of the product</strong>.
+            </div>
+
+            <div class="p-5 rounded-xl bg-amber-50/70 border border-amber-200 space-y-2">
+              <h3 class="text-base font-extrabold text-navy-900">1. Bilingual Labeling &amp; Charter of the French Language (Bill 96 / OQLF)</h3>
+              <ul class="list-disc pl-5 space-y-1.5">
+                <li><strong>Federal Consumer Packaging and Labelling Act:</strong> The generic product name, net quantity (in metric units: <code class="font-mono font-bold">g, kg, ml, L</code>), and the name/address of the Canadian company must appear in <strong>French and English</strong>.</li>
+                <li><strong>Quebec Rule (OQLF / Bill 96):</strong> Every inscription on the product itself, its container, packaging, user manual, or warranty certificate must be drafted in <strong>French</strong>, and no other language may occupy a more prominent place (size, visibility) than French.</li>
+                <li><strong>Practical Advice:</strong> Always ask the factory in China to print your bilingual FR/EN box or label directly at the factory before packing (costs a few cents per unit in China versus several dollars if you have to relabel by hand in Montreal).</li>
+              </ul>
+            </div>
+
+            <div class="space-y-2.5">
+              <h3 class="text-base font-extrabold text-navy-900">2. Mandatory Technical Certifications by Sector</h3>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                  <thead>
+                    <tr class="bg-navy-900 text-white text-xs uppercase">
+                      <th class="py-3 px-4">Product Category</th>
+                      <th class="py-3 px-4">Mandatory Certification in Canada</th>
+                      <th class="py-3 px-4">What to Demand from the Factory in China (and Verify)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white">
+                    <tr>
+                      <td class="py-3.5 px-4 font-bold text-navy-900">Electronics / 120V Wall-Plugged Appliances</td>
+                      <td class="py-3.5 px-4 font-mono font-bold text-red-700">CSA, cUL, cETL (Intertek)<br><span class="text-[11px] font-sans font-normal text-slate-500">(Must have the small "c" in front of UL or ETL signifying Canada!)</span></td>
+                      <td class="py-3.5 px-4">The European <strong>"CE" logo is worth NOTHING in Canada</strong>. It is illegal to sell a wall-plugged appliance (or its power brick/charger) in Quebec without Canadian electrical approval recognized by the RBQ and Hydro-Québec. <strong>Pro Tip:</strong> If a small electronic device is not certified, buy it in low-voltage USB 5V without a wall brick, or have the wall adapter supplied by a cUL/CSA-certified subcontractor.</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3.5 px-4 font-bold text-navy-900">Wireless Devices (Bluetooth, Wi-Fi, Radio)</td>
+                      <td class="py-3.5 px-4 font-mono font-bold text-navy-900">ISED (ISDE / IC ID)</td>
+                      <td class="py-3.5 px-4">Every device emitting radio waves must possess an Innovation, Science and Economic Development Canada certification number (often paired with the US FCC number: <code class="font-mono">FCC ID + IC ID</code>).</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3.5 px-4 font-bold text-navy-900">Textiles &amp; Apparel</td>
+                      <td class="py-3.5 px-4 font-mono font-bold text-navy-900">CA Identification Number + Textile Labelling Act</td>
+                      <td class="py-3.5 px-4">The sewn label must display the exact fiber percentage in French and English (e.g., <em>100% Coton / 100% Cotton</em>), country of origin (<em>Fabriqué en Chine / Made in China</em>), and either the full name/postal address of the Canadian importer or your <strong>CA Number</strong> (obtained for $100 CAD from the Competition Bureau Canada).</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3.5 px-4 font-bold text-navy-900">Cosmetics, Creams, Perfumes</td>
+                      <td class="py-3.5 px-4 font-mono font-bold text-navy-900">CNF (Cosmetic Notification Form &mdash; Health Canada)</td>
+                      <td class="py-3.5 px-4">Mandatory obligation to verify that no ingredient appears on Health Canada's <em>Cosmetic Ingredient Hotlist</em>, display the INCI list on packaging, and submit the CNF online within 10 days following first sale.</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3.5 px-4 font-bold text-navy-900">Sunglasses, Helmets, Protective Gear</td>
+                      <td class="py-3.5 px-4 font-mono font-bold text-navy-900">CSA / ANSI / Health Canada / DOT</td>
+                      <td class="py-3.5 px-4">Subject to strict impact resistance and UV filtration tests.</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                      <td class="py-3.5 px-4 font-bold text-navy-900">Food Contact Containers (Mugs, Bottles, Utensils)</td>
+                      <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">Food Grade (BPA-Free / Lead-Free / Cadmium-Free)</td>
+                      <td class="py-3.5 px-4">Demand an independent laboratory test report (<strong>SGS, TUV, or Intertek</strong>) proving compliance with Health Canada / FDA chemical migration standards.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 9,
+        shortTab: '9. A-Z Execution',
+        title: 'Module 9: The A-to-Z Operational Procedure for Ghandour Import (10-Step Checklist)',
+        tags: 'Golden Sample, Day 21 Self-Financing (50% Client vs 30% Factory), PSI Gate, Pre-Arrival CARM Clearance',
+        linkedTool: 'checklist',
+        linkedToolLabel: 'Open Interactive 10-Step SOP Tracker',
+        html: `
+          <div class="space-y-4 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 font-medium text-navy-900">
+              Below is the chronological <strong>10-step roadmap</strong> to execute for every client of <strong>Ghandour Import</strong>:
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 1 &bull; Day 1</span>
+                <div class="font-bold text-navy-900 mt-0.5">1. Client Need Qualification</div>
+                <p class="text-xs text-slate-600 mt-1">Collect photos, dimensions, desired materials, target quantity, and budget from the client in Quebec.</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 2 &bull; Day 2</span>
+                <div class="font-bold text-navy-900 mt-0.5">2. Customs &amp; Regulatory Verification</div>
+                <p class="text-xs text-slate-600 mt-1">Identify the 10-digit HS Code, check MFN duty rate, ensure the product is not subject to SIMA anti-dumping surtaxes (LMSI), and identify required standards (CSA, French labeling, etc.).</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 3 &bull; Days 3 to 7</span>
+                <div class="font-bold text-navy-900 mt-0.5">3. Sourcing &amp; Audit by Your Team in China</div>
+                <p class="text-xs text-slate-600 mt-1">Shortlist 3 to 5 factories on 1688/Alibaba or local network, verify their Business License (characters <span class="zh-badge">生产</span>/<span class="zh-badge">制造</span>), have them sign the Mandarin NNN agreement, and obtain FOB quotes.</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 4 &bull; Day 8</span>
+                <div class="font-bold text-navy-900 mt-0.5">4. Freight Quote &amp; Landed Cost Calculation</div>
+                <p class="text-xs text-slate-600 mt-1">Request freight rates (LCL, FCL, or Air) from a Canadian/international forwarder based on CBM volume and gross weight, calculate Landed Cost, and send your Official CAD Proposal to your client.</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 5 &bull; Days 9 to 20</span>
+                <div class="font-bold text-navy-900 mt-0.5">5. Sample Validation (Golden Sample)</div>
+                <p class="text-xs text-slate-600 mt-1">Have a final sample produced/shipped. Your team in China keeps an identical sealed reference unit (<strong>Golden Sample</strong>) for the final inspection, and you have the client sign the other in Montreal.</p>
+              </div>
+              <div class="p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50/50">
+                <span class="font-mono text-[11px] font-bold text-emerald-800 uppercase">Step 6 &bull; Day 21 (Self-Financing)</span>
+                <div class="font-bold text-navy-900 mt-0.5">6. Contract Signature &amp; Deposit</div>
+                <p class="text-xs text-slate-700 mt-1"><strong>Client Collection:</strong> Invoice a <strong>50% deposit</strong> to your Quebec client (which easily covers your factory deposit from Day 1 without touching your own treasury!). <strong>Factory Payment:</strong> Wire the <strong>30% T/T deposit</strong> to the Chinese factory with the full purchase contract + bilingual label files + barcode + <em>Made in China</em> mark.</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 7 &bull; End of Production</span>
+                <div class="font-bold text-navy-900 mt-0.5">7. Production Monitoring &amp; PSI Quality Inspection</div>
+                <p class="text-xs text-slate-600 mt-1">Your China team visits the factory when 100% of products are ready (&ge;80% packed), applies the <strong>AQL 2.5 / 4.0</strong> grid, tests the products, and sends you the photo/video report.</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 8 &bull; Pre-Loading</span>
+                <div class="font-bold text-navy-900 mt-0.5">8. Vessel Booking, Balance Payment &amp; Telex Release</div>
+                <p class="text-xs text-slate-600 mt-1">Once inspection is validated, your forwarder books vessel space and transmits the <strong>ACI eManifest 24h before loading</strong>. You pay the <strong>70% balance</strong> to the factory. The factory provides the Commercial Invoice, Packing List, and Bill of Lading in <strong>Telex Release</strong>.</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 9 &bull; Ocean Transit (ETA -5 Days)</span>
+                <div class="font-bold text-navy-900 mt-0.5">9. CBSA / CARM Customs Clearance</div>
+                <p class="text-xs text-slate-600 mt-1">Do not wait for the ship to arrive in Montreal to clear customs! When the vessel is <strong>5 days away</strong> from docking in Vancouver or Montreal, send the document package to your customs broker (approved on your CARM portal) to obtain <strong>Pre-Arrival Clearance</strong>.</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <span class="font-mono text-[11px] font-bold text-gold-600 uppercase">Step 10 &bull; Arrival in Montreal</span>
+                <div class="font-bold text-navy-900 mt-0.5">10. Final Delivery &amp; Balance Invoicing</div>
+                <p class="text-xs text-slate-600 mt-1">The container or pallets are released immediately upon arrival (<strong>zero demurrage fees</strong>), delivered by truck to the client, and you collect the remaining <strong>50% balance</strong> of your client invoice.</p>
+              </div>
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    // -------------------------------------------------------------------------
+    // 4. ACADEMY RENDERING ENGINE (SLIDE DECK MODE & FULL MANUAL MODE)
+    // -------------------------------------------------------------------------
+    let currentSlideIndex = 0; // 0 to 8
+    let academyDisplayMode = 'slide'; // 'slide' or 'manual'
+    let academySearchQuery = '';
+
+    function renderModulePills() {
+      const row = document.getElementById('module-pills-row');
+      row.innerHTML = modulesData.map((m, idx) => {
+        const isActive = (academyDisplayMode === 'slide' && idx === currentSlideIndex);
+        return `
+          <button
+            onclick="selectModuleSlide(${idx})"
+            class="px-2.5 py-2 rounded-lg text-[11px] font-bold truncate transition-all text-center ${
+              isActive
+                ? 'bg-navy-900 text-white border-b-4 border-gold-500 shadow-sm'
+                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+            }"
+            title="${m.title}"
+          >
+            ${m.shortTab}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function buildModuleCardHTML(mod, idx, total) {
+      const progressPct = Math.round(((idx + 1) / total) * 100);
+      return `
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <!-- Dark Navy Card Header with Gold Bottom Border (Exact match to IMG_3145.jpg) -->
+          <div class="bg-navy-900 text-white px-5 sm:px-6 py-4 border-b-2 border-gold-500 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-1 rounded-md bg-gold-500 text-navy-950 font-mono font-extrabold text-xs whitespace-nowrap">
+                MODULE ${mod.id}/${total}
+              </span>
+              <h2 class="text-base sm:text-lg font-extrabold text-white leading-snug">
+                ${mod.title}
+              </h2>
+            </div>
+
+            ${academyDisplayMode === 'slide' ? `
+              <div class="flex items-center gap-2 flex-shrink-0">
+                <button
+                  onclick="prevSlide()"
+                  ${idx === 0 ? 'disabled' : ''}
+                  class="px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 bg-navy-800 hover:bg-navy-700 text-slate-200 disabled:opacity-40 transition"
+                >
+                  &lt; Previous
+                </button>
+                <button
+                  onclick="nextSlide()"
+                  ${idx === total - 1 ? 'disabled' : ''}
+                  class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-gold-500 hover:bg-gold-400 text-navy-950 disabled:opacity-40 shadow transition"
+                >
+                  Next &gt;
+                </button>
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Module Unabridged Body -->
+          <div class="p-5 sm:p-6">
+            ${mod.html}
+          </div>
+
+          <!-- Card Footer with Key Tags, Interactive Tool Link & Progress Bar (Exact match to IMG_3145.jpg) -->
+          <div class="bg-slate-50 px-5 sm:px-6 py-3 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="text-slate-400 font-medium">${mod.tags}</span>
+              <button onclick="switchView('${mod.linkedTool}')" class="text-navy-900 hover:text-gold-600 font-bold underline decoration-gold-500 underline-offset-4">
+                &rarr; ${mod.linkedToolLabel}
+              </button>
+            </div>
+            <div class="flex items-center gap-3 flex-shrink-0">
+              <div class="w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-gold-500 rounded-full" style="width: ${progressPct}%"></div>
+              </div>
+              <span class="font-mono font-bold text-slate-500">${mod.id}/${total}</span>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderAcademyContent() {
+      renderModulePills();
+      const container = document.getElementById('academy-content-container');
+      const q = academySearchQuery.trim().toLowerCase();
+
+      if (q.length > 0) {
+        const filtered = modulesData.filter(m =>
+          m.title.toLowerCase().includes(q) ||
+          m.tags.toLowerCase().includes(q) ||
+          m.html.toLowerCase().includes(q)
+        );
+        if (filtered.length === 0) {
+          container.innerHTML = `
+            <div class="bg-white rounded-2xl p-8 text-center border border-slate-200">
+              <div class="text-navy-900 font-bold text-base">No module matches "${academySearchQuery}"</div>
+              <p class="text-xs text-slate-500 mt-1">Try searching for RM0001, CARM, 生产, NNN, AQL, FOB, CIF, CBM, ISPM 15, SIMA, or Bill 96.</p>
+            </div>
+          `;
+        } else {
+          container.innerHTML = filtered.map((m, i) => buildModuleCardHTML(m, m.id - 1, modulesData.length)).join('');
+        }
+        return;
+      }
+
+      if (academyDisplayMode === 'slide') {
+        const mod = modulesData[currentSlideIndex];
+        container.innerHTML = buildModuleCardHTML(mod, currentSlideIndex, modulesData.length);
+      } else {
+        container.innerHTML = modulesData.map((m, idx) => buildModuleCardHTML(m, idx, modulesData.length)).join('');
+      }
+    }
+
+    function setAcademyMode(mode) {
+      academyDisplayMode = mode;
+      const btnSlide = document.getElementById('mode-btn-slide');
+      const btnManual = document.getElementById('mode-btn-manual');
+      if (mode === 'slide') {
+        btnSlide.className = 'px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 bg-gold-500 text-navy-950 shadow transition';
+        btnManual.className = 'px-3.5 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 bg-navy-800 text-slate-300 hover:text-white border border-slate-700 transition';
+      } else {
+        btnManual.className = 'px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 bg-gold-500 text-navy-950 shadow transition';
+        btnSlide.className = 'px-3.5 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 bg-navy-800 text-slate-300 hover:text-white border border-slate-700 transition';
+      }
+      renderAcademyContent();
+    }
+
+    function selectModuleSlide(idx) {
+      currentSlideIndex = idx;
+      if (academyDisplayMode === 'manual') {
+        setAcademyMode('slide');
+      } else {
+        renderAcademyContent();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlideIndex > 0) {
+        currentSlideIndex--;
+        if (academyDisplayMode !== 'slide') setAcademyMode('slide');
+        else renderAcademyContent();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlideIndex < modulesData.length - 1) {
+        currentSlideIndex++;
+        if (academyDisplayMode !== 'slide') setAcademyMode('slide');
+        else renderAcademyContent();
+      }
+    }
+
+    function handleAcademySearch(val) {
+      academySearchQuery = val;
+      const clearBtn = document.getElementById('academy-search-clear');
+      if (val.trim().length > 0) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
+      renderAcademyContent();
+    }
+
+    function clearAcademySearch() {
+      document.getElementById('academy-search').value = '';
+      handleAcademySearch('');
+    }
+
+    // Keyboard Left/Right Arrow Navigation for Slide Mode
+    window.addEventListener('keydown', function (e) {
+      const academyVisible = !document.getElementById('view-academy').classList.contains('hidden');
+      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+      if (academyVisible && tag !== 'input' && tag !== 'textarea' && tag !== 'select') {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // 5. VIEW 2: CBSA LANDED COST & CUSTOMS SIMULATOR (EXACT IMG_3146.jpg)
+    // -------------------------------------------------------------------------
+    function fmtMoney(n) {
+      return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function syncGlobalExchangeRate(val) {
+      const rate = parseFloat(val) || 1.38;
+      document.getElementById('sim-fx').value = rate;
+      runLandedSimulator();
+    }
+
+    function syncFromSimExchangeRate(val) {
+      const rate = parseFloat(val) || 1.38;
+      document.getElementById('global-fx-input').value = rate;
+      runLandedSimulator();
+    }
+
+    function loadLandedPreset(preset) {
+      const btns = ['backpacks', 'furniture', 'electronics'];
+      btns.forEach(b => {
+        const el = document.getElementById(`preset-btn-${b}`);
+        if (b === preset) {
+          el.className = 'px-3.5 py-2 rounded-lg text-xs font-bold bg-navy-900 text-white shadow-sm transition';
+        } else {
+          el.className = 'px-3.5 py-2 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition';
+        }
+      });
+
+      if (preset === 'backpacks') {
+        document.getElementById('sim-product-name').value = 'Custom Technical Backpacks (HS: 4202.92.90.10)';
+        document.getElementById('sim-qty').value = 1000;
+        document.getElementById('sim-fob-usd').value = '12.00';
+        document.getElementById('sim-fx').value = '1.38';
+        document.getElementById('global-fx-input').value = '1.38';
+        document.getElementById('sim-duty-pct').value = '11';
+        document.getElementById('sim-freight').value = '1450';
+        document.getElementById('sim-psi').value = '250';
+        document.getElementById('sim-ins').value = '95';
+        document.getElementById('sim-broker').value = '125';
+        document.getElementById('sim-wire').value = '40';
+        document.getElementById('sim-margin').value = '25';
+      } else if (preset === 'furniture') {
+        document.getElementById('sim-product-name').value = 'Commercial Office Chairs (HS: 9401.71.90.10 - 0% Commercial)';
+        document.getElementById('sim-qty').value = 300;
+        document.getElementById('sim-fob-usd').value = '42.00';
+        document.getElementById('sim-duty-pct').value = '0';
+        document.getElementById('sim-freight').value = '2400';
+        document.getElementById('sim-psi').value = '250';
+        document.getElementById('sim-ins').value = '110';
+        document.getElementById('sim-broker').value = '125';
+        document.getElementById('sim-wire').value = '40';
+        document.getElementById('sim-margin').value = '28';
+      } else if (preset === 'electronics') {
+        document.getElementById('sim-product-name').value = 'cUL / CSA Certified LED Appliances (HS: 8543.70.00.00)';
+        document.getElementById('sim-qty').value = 500;
+        document.getElementById('sim-fob-usd').value = '18.50';
+        document.getElementById('sim-duty-pct').value = '6';
+        document.getElementById('sim-freight').value = '1150';
+        document.getElementById('sim-psi').value = '250';
+        document.getElementById('sim-ins').value = '85';
+        document.getElementById('sim-broker').value = '125';
+        document.getElementById('sim-wire').value = '40';
+        document.getElementById('sim-margin').value = '30';
+      }
+      runLandedSimulator();
+    }
+
+    function runLandedSimulator() {
+      const qty = Math.max(1, parseInt(document.getElementById('sim-qty').value, 10) || 1);
+      const fobUsd = Math.max(0, parseFloat(document.getElementById('sim-fob-usd').value) || 0);
+      const fx = Math.max(0.01, parseFloat(document.getElementById('sim-fx').value) || 1.38);
+      const dutyPct = Math.max(0, parseFloat(document.getElementById('sim-duty-pct').value) || 0);
+
+      const freight = Math.max(0, parseFloat(document.getElementById('sim-freight').value) || 0);
+      const psi = Math.max(0, parseFloat(document.getElementById('sim-psi').value) || 0);
+      const ins = Math.max(0, parseFloat(document.getElementById('sim-ins').value) || 0);
+      const broker = Math.max(0, parseFloat(document.getElementById('sim-broker').value) || 0);
+      const wire = Math.max(0, parseFloat(document.getElementById('sim-wire').value) || 0);
+      const marginPct = Math.min(95, Math.max(1, parseFloat(document.getElementById('sim-margin').value) || 25));
+
+      // CBSA Official Math
+      const totalFobUsd = qty * fobUsd;
+      const vfdCad = totalFobUsd * fx; // 1. Value for Duty
+      const dutyCad = vfdCad * (dutyPct / 100); // 2. Customs Duty
+      const vftCad = vfdCad + dutyCad; // 3. Value for Tax
+      const logisticsCad = freight + psi + ins + broker + wire; // 4. Logistics & Ancillary Fees
+      const totalNetLanded = vftCad + logisticsCad; // Total Net Landed Cost ($20,341.60)
+      const cbsaGst = vftCad * 0.05; // 5% GST on VFT ($919.08)
+
+      // Unit Metrics & Selling Price (exact match to IMG_3146.jpg: $20.34, $27.12, $6,780.53)
+      const unitFobCad = fobUsd * fx;
+      const unitLandedExact = totalNetLanded / qty;
+      const multiplierPct = unitFobCad > 0 ? ((unitLandedExact - unitFobCad) / unitFobCad) * 100 : 0;
+
+      const marginDec = marginPct / 100;
+      const totalInvoiceExclTax = totalNetLanded / (1 - marginDec);
+      const totalNetProfit = totalInvoiceExclTax - totalNetLanded;
+      const unitSellingPrice = totalInvoiceExclTax / qty;
+      const unitProfit = unitSellingPrice - unitLandedExact;
+
+      // Update Top 3 KPI Cards
+      document.getElementById('kpi-unit-landed').textContent = fmtMoney(unitLandedExact);
+      document.getElementById('kpi-multiplier').textContent = `+${multiplierPct.toFixed(1)}% vs Factory Price`;
+
+      document.getElementById('kpi-unit-sell').textContent = fmtMoney(unitSellingPrice);
+      document.getElementById('kpi-unit-profit').textContent = `Profit: +${fmtMoney(unitProfit)} / u.`;
+
+      document.getElementById('kpi-total-profit').textContent = fmtMoney(totalNetProfit);
+      document.getElementById('kpi-total-invoice').textContent = `Invoice Excl. Tax: ${fmtMoney(totalInvoiceExclTax)}`;
+
+      // Update Breakdown Card
+      document.getElementById('brk-vfd').textContent = `${fmtMoney(vfdCad)} CAD`;
+      document.getElementById('brk-duty-label').textContent = `2. Customs Duty (${dutyPct}%)`;
+      document.getElementById('brk-duty').textContent = `${fmtMoney(dutyCad)} CAD`;
+      document.getElementById('brk-vft').textContent = `${fmtMoney(vftCad)} CAD`;
+      document.getElementById('brk-logistics').textContent = `${fmtMoney(logisticsCad)} CAD`;
+      document.getElementById('brk-total-net').textContent = `${fmtMoney(totalNetLanded)} CAD`;
+      document.getElementById('brk-gst').textContent = `${fmtMoney(cbsaGst)} CAD`;
+
+      // Update Day 21 Self-Financing Box
+      const client50 = totalInvoiceExclTax * 0.50;
+      const factory30 = (vfdCad * 0.30) + wire;
+      const surplus = client50 - factory30;
+
+      document.getElementById('cf-client-50').textContent = `+${fmtMoney(client50)} CAD`;
+      document.getElementById('cf-factory-30').textContent = `-${fmtMoney(factory30)} CAD`;
+      document.getElementById('cf-net-surplus').textContent = `${surplus >= 0 ? '+' : ''}${fmtMoney(surplus)} CAD`;
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. VIEW 3: CBM, FREIGHT & CONTAINERS SIMULATOR
+    // -------------------------------------------------------------------------
+    function loadFreightPreset(type) {
+      if (type === 'cushions') {
+        document.getElementById('cbm-l').value = 60;
+        document.getElementById('cbm-w').value = 50;
+        document.getElementById('cbm-h').value = 50;
+        document.getElementById('cbm-wt').value = 5;
+        document.getElementById('cbm-boxes').value = 10;
+      } else if (type === 'steel') {
+        document.getElementById('cbm-l').value = 100;
+        document.getElementById('cbm-w').value = 100;
+        document.getElementById('cbm-h').value = 100;
+        document.getElementById('cbm-wt').value = 2500;
+        document.getElementById('cbm-boxes').value = 1;
+      } else if (type === 'fcl20') {
+        document.getElementById('cbm-l').value = 60;
+        document.getElementById('cbm-w').value = 50;
+        document.getElementById('cbm-h').value = 50;
+        document.getElementById('cbm-wt').value = 18;
+        document.getElementById('cbm-boxes').value = 120;
+      }
+      runFreightSimulator();
+    }
+
+    function runFreightSimulator() {
+      const l = Math.max(1, parseFloat(document.getElementById('cbm-l').value) || 1);
+      const w = Math.max(1, parseFloat(document.getElementById('cbm-w').value) || 1);
+      const h = Math.max(1, parseFloat(document.getElementById('cbm-h').value) || 1);
+      const wt = Math.max(0.1, parseFloat(document.getElementById('cbm-wt').value) || 1);
+      const boxes = Math.max(1, parseInt(document.getElementById('cbm-boxes').value, 10) || 1);
+
+      const unitCbm = (l * w * h) / 1000000;
+      const totalCbm = unitCbm * boxes;
+      const totalKg = wt * boxes;
+      const totalTons = totalKg / 1000;
+
+      const expVol = ((l * w * h) / 5000) * boxes;
+      const expChg = Math.max(totalKg, expVol);
+
+      const airVol = ((l * w * h) / 6000) * boxes;
+      const airChg = Math.max(totalKg, airVol);
+
+      const lclWM = Math.max(totalCbm, totalTons);
+
+      document.getElementById('cbm-unit-out').textContent = `${unitCbm.toFixed(3)} CBM`;
+      document.getElementById('cbm-total-out').textContent = `${totalCbm.toFixed(2)} CBM (m³)`;
+      document.getElementById('cbm-wt-out').textContent = `${totalKg.toFixed(1)} kg (${totalTons.toFixed(3)} t)`;
+
+      document.getElementById('cbm-exp-chg').textContent = `${expChg.toFixed(1)} kg`;
+      document.getElementById('cbm-exp-sub').textContent = `Volumetric: ${expVol.toFixed(0)} kg vs ${totalKg.toFixed(0)} kg Real`;
+
+      document.getElementById('cbm-air-chg').textContent = `${airChg.toFixed(1)} kg`;
+      document.getElementById('cbm-air-sub').textContent = `Volumetric: ${airVol.toFixed(0)} kg vs ${totalKg.toFixed(0)} kg Real`;
+
+      document.getElementById('cbm-lcl-chg').textContent = `${lclWM.toFixed(2)} W/M`;
+      document.getElementById('cbm-lcl-sub').textContent = `${totalCbm.toFixed(2)} CBM vs ${totalTons.toFixed(2)} Metric Tons`;
+
+      const recTitle = document.getElementById('cbm-rec-title');
+      const recDesc = document.getElementById('cbm-rec-desc');
+      if (totalKg <= 150 && totalCbm < 1.8) {
+        recTitle.textContent = '1. Express Courier (DHL / FedEx / UPS) — 3 to 6 Days';
+        recDesc.textContent = `Ideal for <150 kg and <2 CBM. Watch volumetric billing (${expChg.toFixed(0)} kg chargeable).`;
+      } else if (totalCbm >= 15) {
+        recTitle.textContent = "4. Ocean FCL (Full Container Load) — 28 to 40 Days";
+        recDesc.textContent = `Volume (${totalCbm.toFixed(1)} CBM) reaches the ≥15 CBM threshold where a dedicated 20' Dry container (26–28 CBM real capacity) is more economical than LCL and avoids intermediate handling.`;
+      } else {
+        recTitle.textContent = '3. Ocean LCL Consolidation (to Montreal CFS) — 28 to 40 Days';
+        recDesc.textContent = `Volume is between 2 and 15 CBM. Ship FOB China via LCL (billed at ${lclWM.toFixed(2)} W/M).`;
+      }
+
+      const p20 = Math.min(100, (totalCbm / 28) * 100);
+      const p40 = Math.min(100, (totalCbm / 58) * 100);
+      const p40hq = Math.min(100, (totalCbm / 68) * 100);
+
+      document.getElementById('fcl-20-pct').textContent = `${((totalCbm / 28) * 100).toFixed(1)}%`;
+      document.getElementById('fcl-20-bar').style.width = `${p20}%`;
+      document.getElementById('fcl-40-pct').textContent = `${((totalCbm / 58) * 100).toFixed(1)}%`;
+      document.getElementById('fcl-40-bar').style.width = `${p40}%`;
+      document.getElementById('fcl-40hq-pct').textContent = `${((totalCbm / 68) * 100).toFixed(1)}%`;
+      document.getElementById('fcl-40hq-bar').style.width = `${p40hq}%`;
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. VIEW 4: AQL QUALITY INSPECTION SIMULATOR
+    // -------------------------------------------------------------------------
+    function loadAqlPreset(lot, crit, maj, min) {
+      document.getElementById('qc-lot-size').value = lot;
+      document.getElementById('qc-crit').value = crit;
+      document.getElementById('qc-maj').value = maj;
+      document.getElementById('qc-min').value = min;
+      runAqlSimulator();
+    }
+
+    function runAqlSimulator() {
+      const lot = Math.max(2, parseInt(document.getElementById('qc-lot-size').value, 10) || 5000);
+      const crit = Math.max(0, parseInt(document.getElementById('qc-crit').value, 10) || 0);
+      const maj = Math.max(0, parseInt(document.getElementById('qc-maj').value, 10) || 0);
+      const min = Math.max(0, parseInt(document.getElementById('qc-min').value, 10) || 0);
+
+      let bracket = '3,201 to 10,000 units';
+      let sample = 200;
+      let majRej = 11;
+      let minRej = 15;
+
+      if (lot <= 280) {
+        bracket = '151 to 280 units'; sample = 32; majRej = 3; minRej = 4;
+      } else if (lot <= 1200) {
+        bracket = '501 to 1,200 units'; sample = 80; majRej = 6; minRej = 8;
+      } else if (lot <= 3200) {
+        bracket = '1,201 to 3,200 units'; sample = 125; majRej = 8; minRej = 11;
+      }
+
+      document.getElementById('qc-bracket').textContent = bracket;
+      document.getElementById('qc-sample').textContent = `${sample} units`;
+      document.getElementById('qc-sample-big').textContent = sample;
+
+      const passed = (crit === 0) && (maj < majRej) && (min < minRej);
+      const card = document.getElementById('qc-verdict-card');
+      const badge = document.getElementById('qc-verdict-badge');
+      const title = document.getElementById('qc-verdict-title');
+      const desc = document.getElementById('qc-verdict-desc');
+
+      if (passed) {
+        card.className = 'rounded-2xl p-6 bg-emerald-950 text-white border-2 border-emerald-500 shadow-md';
+        badge.className = 'px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-emerald-400 text-navy-950';
+        badge.textContent = 'PSI PASSED • AUTHORIZE 70% T/T WIRE';
+        title.textContent = 'Quality Approved — Proceed with 70% Balance & Telex Release B/L';
+        desc.textContent = `Inspected ${sample} random units: Critical=${crit} (Max 0), Major=${maj} (Reject ≥${majRej}), Minor=${min} (Reject ≥${minRej}). Safe to release final 70% payment.`;
+      } else {
+        card.className = 'rounded-2xl p-6 bg-red-950 text-white border-2 border-red-500 shadow-md';
+        badge.className = 'px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-red-400 text-navy-950';
+        badge.textContent = 'PSI LOT REJECTED (FAIL) • HOLD 70% PAYMENT';
+        title.textContent = 'DO NOT PAY 70% BALANCE — Require 100% Factory Sorting & Re-Inspection';
+        desc.textContent = `Threshold breached on ${sample} unit sample (Critical=${crit} [ Reject ≥1 ], Major=${maj} [ Reject ≥${majRej} ], Minor=${min} [ Reject ≥${minRej} ]). Factory must sort 100% of cartons at its own cost and pass a second PSI.`;
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. VIEW 5: 10-STEP CHECKLIST & NNN CLAUSE COPY
+    // -------------------------------------------------------------------------
+    const sopItems = [
+      { n: 1, day: 'Day 1', title: 'Client Need Qualification (Quebec)', text: 'Collect photos, dimensions, materials, target quantity, and budget.' },
+      { n: 2, day: 'Day 2', title: 'Customs, 10-Digit HS Code, SIMA & Standards Check', text: 'Verify MFN duty rate, check zero SIMA anti-dumping surtaxes, and list required certifications (CSA/cUL, ISED, CA#, CNF, Food Grade, Bill 96).' },
+      { n: 3, day: 'Days 3–7', title: 'China Sourcing, 4-Point NECIPS Audit & Mandarin NNN', text: 'Verify Business License (营业执照 characters 生产/制造), ≥500k RMB capital, sign Mandarin NNN (300k RMB penalty), and get FOB quotes.' },
+      { n: 4, day: 'Day 8', title: 'Freight Quote & Official CAD Landed Cost Proposal', text: 'Calculate CBM/Weight, get forwarder quote, compute Landed Cost + margin, and send CAD proposal to client.' },
+      { n: 5, day: 'Days 9–20', title: 'Golden Sample Validation (China & Montreal)', text: 'Seal one Golden Sample with your China team for PSI reference and have the client sign the twin sample in Montreal.' },
+      { n: 6, day: 'Day 21', title: 'Contract Signature, 50% Client Deposit & 30% Factory Wire', text: 'Collect 50% deposit from Quebec client (self-financing!), then wire 30% T/T deposit to factory with PO & bilingual FR/EN packaging artwork.' },
+      { n: 7, day: 'End of Prod.', title: 'On-Site PSI Quality Inspection (ISO 2859-1 AQL 2.5 / 4.0)', text: 'At 100% produced & ≥80% packed, China team pulls random AQL sample and sends photo/video inspection report.' },
+      { n: 8, day: 'Pre-Loading', title: 'Vessel Booking, 24h ACI eManifest, 70% Balance & Telex Release', text: 'Transmit ACI eManifest 24h prior to loading, wire 70% T/T balance after PSI pass, and obtain Commercial Invoice, Packing List & Telex Release B/L (on plastic/plywood pallets).' },
+      { n: 9, day: 'ETA -5 Days', title: 'Pre-Arrival CBSA / CARM Customs Clearance', text: '5 days before docking in Vancouver/Montreal, send docs to your CARM-approved customs broker for Pre-Arrival Clearance.' },
+      { n: 10, day: 'Arrival Mtl', title: 'Zero-Demurrage Release, Delivery & Final 50% Client Invoice', text: 'Immediate port release (0 demurrage), truck delivery to client, and collection of final 50% client balance.' }
+    ];
+
+    let checkedSteps = JSON.parse(localStorage.getItem('ghandour_sop_v2') || '[1,2]');
+
+    function renderSopTracker() {
+      const box = document.getElementById('sop-list-box');
+      box.innerHTML = sopItems.map(item => {
+        const done = checkedSteps.includes(item.n);
+        return `
+          <div onclick="toggleSopItem(${item.n})" class="cursor-pointer p-3 rounded-xl border transition flex items-start gap-3 ${done ? 'bg-emerald-50/70 border-emerald-400' : 'bg-slate-50 border-slate-200 hover:bg-white'}">
+            <div class="w-6 h-6 rounded-md flex items-center justify-center font-mono text-xs font-bold flex-shrink-0 mt-0.5 ${done ? 'bg-emerald-600 text-white' : 'bg-navy-900 text-gold-400'}">
+              ${done ? '<i class="fa-solid fa-check"></i>' : item.n}
+            </div>
+            <div class="text-xs">
+              <div class="font-bold text-navy-900"><span class="text-gold-600 font-mono mr-1">[${item.day}]</span> ${item.title}</div>
+              <div class="text-slate-600 mt-0.5">${item.text}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      const pct = Math.round((checkedSteps.length / 10) * 100);
+      document.getElementById('sop-pct-badge').textContent = `${checkedSteps.length} / 10 (${pct}%)`;
+      document.getElementById('sop-bar').style.width = `${pct}%`;
+    }
+
+    function toggleSopItem(n) {
+      if (checkedSteps.includes(n)) checkedSteps = checkedSteps.filter(x => x !== n);
+      else checkedSteps.push(n);
+      localStorage.setItem('ghandour_sop_v2', JSON.stringify(checkedSteps));
+      renderSopTracker();
+    }
+
+    function setAllSop(state) {
+      checkedSteps = state ? [1,2,3,4,5,6,7,8,9,10] : [];
+      localStorage.setItem('ghandour_sop_v2', JSON.stringify(checkedSteps));
+      renderSopTracker();
+    }
+
+    function copyNnnClause() {
+      const textarea = document.getElementById('nnn-clause-text');
+      textarea.select();
+      document.execCommand('copy');
+      const btn = document.getElementById('copy-nnn-btn');
+      btn.innerHTML = '<i class="fa-solid fa-check mr-1"></i> Copied!';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-copy mr-1"></i> Copy Clause';
+      }, 2000);
+    }
+
+    // -------------------------------------------------------------------------
+    // 9. VIEW 6: 12-QUESTION CERTIFICATION EXAM (CCS / CIFFA / FITT)
+    // -------------------------------------------------------------------------
+    const examQuestions = [
+      {
+        q: '1. Why must Ghandour Import register for GST (RT0001) and QST (TQ0001) on Day 1, even before reaching $30,000 in sales?',
+        options: [
+          'To recover 100% of the 5% Import GST paid to CBSA at the border via Input Tax Credits (ITCs / CTI)',
+          'Because CBSA charges 9.975% QST at the border on all commercial containers',
+          'Because Chinese factories require a QST number to issue a Telex Release'
+        ],
+        correct: 0,
+        exp: 'Module 1: Without an active GST (RT0001) account on Day 1, the 5% GST paid to CBSA at the border becomes a permanent dead loss instead of a 100% refundable Input Tax Credit.'
+      },
+      {
+        q: '2. In the CBSA CARM Client Portal, what is required for your goods to be released immediately at the border prior to paying duties (RPP / MAP)?',
+        options: [
+          'A Western NDA signed in Montreal',
+          'A financial security (either a cash deposit in CARM or an annual surety bond costing ~$250–$500/year for $25,000 monthly tax coverage) + delegating authority to your customs broker',
+          'Shipping exclusively under the DDP Incoterm via a Chinese forwarder'
+        ],
+        correct: 1,
+        exp: 'Module 1: CARM requires linking your RM0001, approving the business relationship with your customs broker, and posting financial security (RPP surety bond or cash deposit).'
+      },
+      {
+        q: '3. When auditing a Chinese supplier’s Business License (营业执照) on NECIPS, which characters MUST appear in the Business Scope (经营范围) to prove it is a true factory?',
+        options: [
+          '批发 / 销售 / 贸易 (Wholesale / Sales / Trade)',
+          '生产 (Production) or 制造 (Manufacturing)',
+          '香港有限公司 (Hong Kong Limited)'
+        ],
+        correct: 1,
+        exp: 'Module 2: A true factory mandatorily displays 生产 (Production) or 制造 (Manufacturing). If it only states 批发 / 销售 / 贸易, it is a Trading Company middleman.'
+      },
+      {
+        q: '4. Why is a Mandarin NNN Agreement superior to a Western NDA in China, and what makes it enforceable?',
+        options: [
+          'It is governed by Chinese law and the People’s Court of the factory’s city, drafted in Mandarin, and includes a predetermined Liquidated Damages clause (e.g., 300,000 RMB) to freeze factory bank accounts',
+          'It is drafted in English and enforced by the Superior Court of Quebec',
+          'It allows the factory to pay 0% export tax'
+        ],
+        correct: 0,
+        exp: 'Module 2: Chinese courts do not enforce foreign Western NDA judgments. An NNN covers Non-Disclosure, Non-Use, and Non-Circumvention in Mandarin under local Chinese court jurisdiction with fixed Liquidated Damages.'
+      },
+      {
+        q: '5. Under ISO 2859-1 (AQL Level II), when is the mandatory Pre-Shipment Inspection (PSI) conducted, and what is the tolerance for Critical Defects?',
+        options: [
+          'After the container is on the ocean; AQL 4.0',
+          'When 100% of production is finished and at least 80% is packed in cartons; AQL 0.0 (1 critical defect rejects the entire lot)',
+          'Before buying raw materials; AQL 2.5'
+        ],
+        correct: 1,
+        exp: 'Module 3: PSI takes place at 100% production completion and ≥80% packed. Passing PSI triggers the 70% T/T balance payment. Critical defects have AQL 0.0 tolerance.'
+      },
+      {
+        q: '6. Why must you NEVER accept CFR or CIF on an LCL (consolidated) ocean shipment from China to Montreal?',
+        options: [
+          'Because the factory quotes artificially cheap ($0) ocean freight, and its Chinese forwarder holds your cargo hostage in Montreal for $1,500 to $3,000 in abusive deconsolidation fees',
+          'Because CIF is only legal for air cargo',
+          'Because FOB does not include Chinese export customs'
+        ],
+        correct: 0,
+        exp: 'Module 4: FOB Chinese Port is the King of Incoterms (90% recommended). In LCL, CIF/CFR is a classic kickback trap where arrival deconsolidation charges in Montreal cost $1,500–$3,000.'
+      },
+      {
+        q: '7. You ship 10 boxes of cushions by DHL Express weighing 50 kg total, each measuring 60 × 50 × 50 cm (1.5 CBM total). What chargeable weight will DHL bill?',
+        options: [
+          '50 kg (actual gross weight)',
+          '250 kg (using divisor 6,000)',
+          '300 kg (using Express divisor 5,000: ((60×50×50)/5000)×10 = 300 kg)'
+        ],
+        correct: 2,
+        exp: 'Module 5: Express couriers (DHL/FedEx/UPS) use a divisor of 5,000 (1 CBM = 200 kg), resulting in 300 kg chargeable weight vs 50 kg actual weight.'
+      },
+      {
+        q: '8. What is the #1 cause of whole-container refusal and forced re-export by CBSA in Montreal, and how do you prevent it?',
+        options: [
+          'Unstamped raw solid wood pallets violating ISPM 15 (NIMP 15); prevent it by mandating plastic pallets or plywood/presswood pallets (100% exempt)',
+          'Using a Telex Release Bill of Lading',
+          'Using a 40-foot High Cube container'
+        ],
+        correct: 0,
+        exp: 'Module 6: Raw wood packaging without an official IPPC (ISPM 15) heat-treatment/fumigation stamp causes immediate container refusal and re-export at the importer’s expense. Plastic or plywood/presswood pallets are 100% exempt.'
+      },
+      {
+        q: '9. How does CBSA calculate Value for Duty (VFD) and Value for Tax (VFT) on a FOB Ningbo import?',
+        options: [
+          'VFD includes international ocean freight and insurance',
+          'VFD = FOB Factory Value (USD) × Bank of Canada Exchange Rate (excluding separate international freight); Customs Duty = VFD × MFN %; VFT = VFD + Customs Duty; GST = 5% of VFT',
+          'CBSA charges 5% GST + 9.975% QST on the factory price only'
+        ],
+        correct: 1,
+        exp: 'Module 7: In Canada, international freight invoiced separately is excluded from VFD. GST (5%) is calculated on VFT (VFD + Customs Duty).'
+      },
+      {
+        q: '10. In the Module 7 Case Study (1,000 Backpacks at $12 USD FOB, 1.38 FX, 11% duty, $1,960 total logistics/inspection/broker/wire), what is the Net Unit Landed Cost and the 25% Gross Margin Selling Price?',
+        options: [
+          '$16.56 CAD landed cost and $20.70 CAD selling price',
+          '$20.34 CAD landed cost ($20,341.60 total) and $27.12 CAD selling price ($20.34 / 0.75)',
+          '$21.28 CAD landed cost and $25.00 CAD selling price'
+        ],
+        correct: 1,
+        exp: 'Module 7: Total Net Landed Cost is $20,341.60 CAD ($20.34/unit), excluding the $919.08 recoverable GST. At a 25% gross margin ($20.34 / 0.75), selling price is $27.12 CAD/unit.'
+      },
+      {
+        q: '11. A Chinese factory offers a 120V wall-plugged electronic appliance bearing a European "CE" mark. Can you legally import and sell it in Quebec?',
+        options: [
+          'Yes, CE is automatically recognized in Quebec',
+          'No! The CE mark is worthless in Canada. 120V wall-plugged appliances/chargers require CSA, cUL, or cETL certification (with the small "c" for Canada) plus Bill 96 French labeling/manuals',
+          'Yes, if you have a CA textile number'
+        ],
+        correct: 1,
+        exp: 'Module 8: RBQ and Hydro-Québec strictly require Canadian electrical certification (CSA, cUL, cETL). Pro tip: buy low-voltage 5V USB without a wall brick or use a cUL/CSA-certified adapter.'
+      },
+      {
+        q: '12. How does Ghandour Import self-finance production on Day 21 (SOP Step 6) without draining its own working capital?',
+        options: [
+          'By collecting a 50% deposit from the Quebec client upon contract signature, which more than covers the 30% T/T deposit wired to the Chinese factory',
+          'By paying the factory 100% upfront before client signature',
+          'By waiting until the ship docks in Montreal to file customs'
+        ],
+        correct: 0,
+        exp: 'Module 9: Collecting a 50% deposit from the Quebec client on Day 21 generates immediate positive cash flow after wiring the 30% factory deposit.'
+      }
+    ];
+
+    let userExamAnswers = {};
+
+    function renderExam() {
+      const container = document.getElementById('exam-questions-container');
+      let score = 0;
+      Object.keys(userExamAnswers).forEach(qIdx => {
+        if (userExamAnswers[qIdx] === examQuestions[qIdx].correct) score++;
+      });
+      document.getElementById('exam-score-display').textContent = `${score} / ${examQuestions.length}`;
+
+      container.innerHTML = examQuestions.map((item, qIdx) => {
+        const answered = userExamAnswers.hasOwnProperty(qIdx);
+        const chosen = userExamAnswers[qIdx];
+        return `
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
+            <div class="font-bold text-sm sm:text-base text-navy-900">${item.q}</div>
+            <div class="space-y-2">
+              ${item.options.map((opt, oIdx) => {
+                let btnStyle = 'bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700';
+                if (answered) {
+                  if (oIdx === item.correct) btnStyle = 'bg-emerald-50 border-emerald-500 text-emerald-950 font-bold';
+                  else if (oIdx === chosen) btnStyle = 'bg-red-50 border-red-400 text-red-900 line-through';
+                }
+                return `
+                  <button
+                    onclick="answerExam(${qIdx}, ${oIdx})"
+                    class="w-full text-left p-3 rounded-xl border text-xs sm:text-sm transition flex items-center justify-between gap-3 ${btnStyle}"
+                  >
+                    <span>${opt}</span>
+                    ${answered && oIdx === item.correct ? '<i class="fa-solid fa-circle-check text-emerald-600"></i>' : ''}
+                  </button>
+                `;
+              }).join('')}
+            </div>
+            ${answered ? `
+              <div class="p-3 rounded-lg bg-navy-900 text-slate-200 text-xs">
+                <strong class="text-gold-400">Explanation:</strong> ${item.exp}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function answerExam(qIdx, oIdx) {
+      userExamAnswers[qIdx] = oIdx;
+      renderExam();
+    }
+
+    // -------------------------------------------------------------------------
+    // INITIALIZE APPLICATION ON LOAD
+    // -------------------------------------------------------------------------
+    window.onload = function () {
+      renderAcademyContent();
+      runLandedSimulator();
+      runFreightSimulator();
+      runAqlSimulator();
+      renderSopTracker();
+      renderExam();
+    };
+  </script>
+</body>
+</html>
